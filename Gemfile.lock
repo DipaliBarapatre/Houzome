@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/thoughtbot/refills.git
+  revision: 4149151dac82e2b52825d5ed9ccc8d4db22d6d2f
+  specs:
+    refills (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -73,6 +79,7 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    flutie (2.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     high_voltage (2.4.0)
@@ -144,7 +151,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.15.0)
     rake (10.4.2)
-    refills (0.1.0)
     sass (3.4.16)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -191,6 +197,7 @@ DEPENDENCIES
   delayed_job_active_record
   dotenv-rails
   factory_girl_rails
+  flutie
   high_voltage
   i18n-tasks
   jquery-rails
@@ -201,7 +208,7 @@ DEPENDENCIES
   pry-rails
   rack-timeout
   rails (= 4.2.1)
-  refills
+  refills!
   sass-rails (~> 5.0)
   simple_form
   uglifier

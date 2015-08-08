@@ -19,12 +19,14 @@ gem "pg"
 # gem "rack-canonical-host" ### Look after me 
 gem "rails", "4.2.1"
 # gem "recipient_interceptor"
-gem "refills"
+gem "refills", github: "thoughtbot/refills"
 gem "sass-rails", "~> 5.0"
 gem "simple_form"
 # gem "title"
 gem "uglifier"
 gem "unicorn"
+gem "flutie" # automatic titles
+
 
 group :development do
   # gem "spring"
@@ -39,6 +41,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem "dotenv-rails"
   gem "pry-rails"
+  # gem 'rspec-rails', '~> 3.0' # Will create specs for controllers automatically while creating
 end
 
 group :test do
