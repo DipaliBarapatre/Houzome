@@ -1,0 +1,7 @@
+#top-header{
+	@include outer-container;
+}
+
+.container{
+	@include outer-container;	
+}

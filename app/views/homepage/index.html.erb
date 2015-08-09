@@ -1,2 +1,50 @@
-<h1>Homepage#index</h1>
-<p>Find me in app/views/homepage/index.html.erb</p>
+<%= render 'shared/header' %>
+
+<div id="banner" class="owl-carousel">
+  <div><%= image_tag 'banner_image1.jpg' %></div>
+  <div><%= image_tag 'banner_image2.jpg' %></div>
+  <div><%= image_tag 'banner_image3.jpg' %></div>
+</div>
+
+<div class="container">
+	<div class="flex-boxes">
+	  <a href="javascript:void(0)" class="flex-box">
+	    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
+	    <h1 class="flex-title">Header</h1>
+	    <p>...</p>
+	  </a>
+	  <a href="javascript:void(0)" class="flex-box">
+	    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
+	    <h1 class="flex-title">Header</h1>
+	    <p>...</p>
+	  </a>
+	  <a href="javascript:void(0)" class="flex-box">
+	    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
+	    <h1 class="flex-title">Header</h1>
+	    <p>....</p>
+	  </a>
+	</div>
+</div>
+
+<div class="container">
+	
+</div>
+
+
+<%= render 'refills/footer' %>
+
+
+<% content_for :javascript do %>
+	<script>
+		$(document).ready(function() {
+		 
+		  $("#banner").owlCarousel({
+		      autoPlay: 3000, //Set AutoPlay to 3 seconds
+		      items : 1,
+		      lazyLoad: true,
+		      pagination: false,
+		      animateIn: 'flipInX',		 
+		  });
+		});
+	</script>
+<% end %>

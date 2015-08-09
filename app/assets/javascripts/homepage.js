@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require shared/header
 //= require plugins/owl.carousel
-//= require plugins/modernizr
 //= require_self
