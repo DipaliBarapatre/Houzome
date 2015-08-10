@@ -1,0 +1,39 @@
+<div class="container padder">
+	<div class="breadcrumb">
+	  <a href="javascript:void(0)">Home</a>
+	  <a href="javascript:void(0)">Builders</a>
+	</div>
+
+
+	<div class="search-tools">
+	  <div class="search-field">
+	  	<label for="city">City</label>
+	  	<select name="city" id="city" style="display:none">
+	  		<option value="">Choose city</option>
+	  		<option value="sd">Bangalore</option>
+	  		<option value="sdsd">Chennai</option>
+	  		<option value="sjdkl">Hyderabad</option>
+	  	</select>
+	  </div>
+	  <div class="search-field">
+	  	<label for="builder">Builder</label>
+	  	<select name="builder" id="builder" style="display:none"> 
+	  		<option value="">Choose Builder</option>
+	  		<option value="sd">Nilkamal</option>
+	  		<option value="sdsd">Puravankara</option>
+	  		<option value="sjdkl">Brigade</option>
+	  		<option value="tes">Mantri</option>
+	  	</select>
+	  </div>
+	</div>
+</div>
+
+
+<% content_for :javascript do %>
+	<script>
+		$(document).ready(function() {
+		 
+		 $('select').selectize();
+		});
+	</script>
+<% end %>

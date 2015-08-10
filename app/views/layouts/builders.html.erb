@@ -12,7 +12,7 @@
   <title><%= page_title %></title>
   <script src="//use.typekit.net/gsi0jaz.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
-  <%= stylesheet_link_tag :homepage, media: "all" %>
+  <%= stylesheet_link_tag :builders, media: "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
@@ -20,8 +20,8 @@
   <%= render 'shared/header' %>
   <%= yield %>
   <%= render 'refills/footer' %>
-
-  <%= javascript_include_tag :application %>
+  
+  <%= javascript_include_tag :builders %>
   <%= yield :javascript %>
 </body>
 </html>

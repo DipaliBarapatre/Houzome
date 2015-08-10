@@ -25,7 +25,10 @@ gem "simple_form"
 # gem "title"
 gem "uglifier"
 gem "unicorn"
+gem "font-awesome-rails"
 gem "flutie" # automatic titles
+gem "selectize-rails"
+
 
 
 group :development do

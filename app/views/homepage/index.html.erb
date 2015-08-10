@@ -1,12 +1,10 @@
-<%= render 'shared/header' %>
-
 <div id="banner" class="owl-carousel">
   <div><%= image_tag 'banner_image1.jpg' %></div>
   <div><%= image_tag 'banner_image2.jpg' %></div>
   <div><%= image_tag 'banner_image3.jpg' %></div>
 </div>
 
-<div class="container">
+<div class="container padder">
 	<div class="flex-boxes">
 	  <a href="javascript:void(0)" class="flex-box">
 	    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
@@ -26,25 +24,86 @@
 	</div>
 </div>
 
-<div class="container">
-	
+<div class="container padder" >
+	<div class="testimonials">
+		<h2>Testimonials</h2>
+		<div class="comment">
+		  <div class="comment-image">
+		    <img src="" alt="image here" style="background:white">
+		  </div>
+		  <div class="comment-content">
+		    <h1>Shyam </h1><p class='comment-detail'>Bangalore</p>
+		    <p>This site is awesome</p>
+		  </div>
+		</div>
+		<div class="comment">
+		  <div class="comment-image">
+		    <img src="" alt="image here" style="background:white">
+		  </div>
+		  <div class="comment-content">
+		    <h1>Shyam</h1>
+		    <p>This site is awesome</p>
+		  </div>
+		</div>
+	</div>
+	<div class="blogposts">
+		<h2>Blog Posts</h2>
+		<div class="comment">
+		  <div class="comment-image">
+		    
+		  </div>
+		  <div class="comment-content">
+		    <h1>Blogpost 1</h1>
+		    <p>Testing message with Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+		    <p class="comment-detail">Post created at 31st, august</p>
+		  </div>
+		</div>
+
+		<div class="comment">
+		  <div class="comment-image">
+		    
+		  </div>
+		  <div class="comment-content">
+		    <h1>Blogpost 2</h1>
+		    <p>Testing message with Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+		    <p class="comment-detail">Post created at 21st june </p>
+		  </div>
+		</div>
+
+	</div>
 </div>
 
-
-<%= render 'refills/footer' %>
-
+<div class="container padder">
+	<div id="partners">
+	  <div class="item"><%= image_tag 'partner_1.jpg' %></div>
+	  <div class="item"><%= image_tag 'partner_2.jpg' %></div>
+	  <div class="item"><%= image_tag 'partner_3.jpg' %></div>
+	  <div class="item"><%= image_tag 'partner_5.jpg' %></div>
+	  <div class="item"><%= image_tag 'partner_4.jpg' %></div>
+	</div>
+</div>
 
 <% content_for :javascript do %>
 	<script>
 		$(document).ready(function() {
 		 
 		  $("#banner").owlCarousel({
-		      autoPlay: 3000, //Set AutoPlay to 3 seconds
-		      items : 1,
-		      lazyLoad: true,
-		      pagination: false,
-		      animateIn: 'flipInX',		 
+		    autoPlay: 3000, //Set AutoPlay to 3 seconds
+		    items : 1,
+	        itemsDesktop: [1199,3],
+	        itemsDesktopSmall: [979,3],
+		    pagination: false,
+		    animateIn: 'flipInX',		 
 		  });
+
+	  	  $("#partners").owlCarousel({
+	  	       autoPlay: 3000, //Set AutoPlay to 3 seconds
+	  	       items: 4,
+	           itemsDesktop: [1199,3],
+	           itemsDesktopSmall: [979,3],
+
+	  	  
+	  	   });
 		});
 	</script>
 <% end %>

@@ -9,12 +9,13 @@
 @import "plugins/animate";
 @import "shared/header";
 @import "shared/tools";
-@import "refills/breadcrumbs";
 @import "refills/flex-boxes";
 @import "refills/footer";
+@import "refills/comment";
 @import "plugins/owlcarousel";
 @import "plugins/owltheme";
 @import 'plugins/owltransitions';
+@import "font-awesome";
 
 
 #banner img{
@@ -33,3 +34,17 @@ visibility:hidden;
 .owl-item.animated {
 	visibility: visible;
 }
+
+
+// Testimonials 
+
+.testimonials, .blogposts {
+	@include span-columns(6);    
+}
+	
+@media screen and (max-width: 768px) {
+ .testimonials, .blogposts {
+ 	@include span-columns(12);    
+ }
+}
+

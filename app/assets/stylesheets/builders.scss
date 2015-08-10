@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+@import "normalize-rails";
+@import "bourbon";
+@import "base/grid-settings";
+@import "neat";
+@import "base/base";
+@import "refills/flashes";
+@import "shared/header";
+@import "shared/tools";
+@import "refills/breadcrumbs";
+@import "refills/footer";
+@import "font-awesome";
+@import 'selectize';
+@import 'selectize.default';
+
+
+.search-tools{
+	.search-field{
+		@include span-columns(3);
+	}
+}

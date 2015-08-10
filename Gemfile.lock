@@ -80,6 +80,8 @@ GEM
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
     flutie (2.0.0)
+    font-awesome-rails (4.4.0.0)
+      railties (>= 3.2, < 5.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     high_voltage (2.4.0)
@@ -158,6 +160,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    selectize-rails (0.12.1)
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -198,6 +201,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   flutie
+  font-awesome-rails
   high_voltage
   i18n-tasks
   jquery-rails
@@ -210,6 +214,7 @@ DEPENDENCIES
   rails (= 4.2.1)
   refills!
   sass-rails (~> 5.0)
+  selectize-rails
   simple_form
   uglifier
   unicorn
