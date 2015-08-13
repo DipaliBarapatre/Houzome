@@ -12,10 +12,15 @@
 @import "refills/footer";
 @import "refills/hover_tile";
 @import "refills/side-image";
+@import "refills/dynamic-height";
+@import "plugins/owlcarousel";
+@import "plugins/owltheme";
+@import 'plugins/owltransitions';
 @import "font-awesome";
 @import 'selectize';
 @import 'selectize.default';
 
+$mobile: new-breakpoint(max-width 500px 4);
 
 .search-tools{
   @include outer-container;
@@ -29,7 +34,39 @@
 }
 
 
-#builders{
+.apartment__block{
+	@include outer-container;
+	.master{
+		@include span-columns(8);
+		@include media($mobile) {
+		  @include span-columns(4);
+		}
+	}
+	.content{
+		@include span-columns(4);	
+		@include omega();
+		@include media($mobile) {
+		  @include span-columns(4);
+		}
+	}
+}
+
+
+#portfolio-images{
+	@include outer-container;
+	.image{
+		@include span-columns(4);
+		@include omega(3n);
+		img{
+			height: 65px;
+			max-height: 65px;
+  			width: 100%;
+		}
+	}
+}
+
+
+#apartments{
   @include outer-container;
   $mobile: new-breakpoint(max-width 500px 4);
   .each{
@@ -42,4 +79,3 @@
     }
   }
 }
-

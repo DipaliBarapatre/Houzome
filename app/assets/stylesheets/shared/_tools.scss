@@ -18,3 +18,37 @@ body{
 #partners img{
 	height: 90px;
 }
+
+.full{
+  width: 100%;
+}
+
+.spacer{
+	min-height: 40px;
+	max-height: 40px;
+	height: 40px;
+}
+
+.custom{
+	position: relative;
+	img{
+		height: 159px;
+		width: 100%;
+		opacity: 0.3;
+	}
+	.plus{
+		position: absolute;
+		top: 20%;
+		left: 44%;
+		font-size: 53px;
+		color: darkgrey;
+		&:hover{
+			color: rgb(124, 121, 121);
+			-webkit-transition: color 0.5s;
+			   -moz-transition: color 0.5s;
+			    -ms-transition: color 0.5s;
+			     -o-transition: color 0.5s;
+			        transition: color 0.5s;
+		}
+	}
+}

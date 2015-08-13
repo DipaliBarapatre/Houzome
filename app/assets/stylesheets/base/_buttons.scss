@@ -1,8 +1,9 @@
+
 #{$all-button-inputs},
 button {
   @include appearance(none);
   -webkit-font-smoothing: antialiased;
-  background-color: $action-color;
+  background-color: $dark-gray;
   border-radius: $base-border-radius;
   border: none;
   color: #fff;
@@ -20,7 +21,7 @@ button {
 
   &:hover,
   &:focus {
-    background-color: darken($action-color, 15%);
+    background-color: darken($dark-gray, 15%);
     color: #fff;
   }
 

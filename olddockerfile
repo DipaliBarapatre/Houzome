@@ -1,0 +1,55 @@
+FROM ubuntu:latest
+MAINTAINER Siddharth <koolspy.siddhu@gmail.com>
+
+# Using bash 
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+# Debian complains about terminal environment on Docker.
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+
+#install base updates
+RUN apt-get update 
+RUN apt-get upgrade -y
+RUN apt-get install -y curl wget ca-certificates build-essential autoconf python-software-properties libyaml-dev
+
+# Finish installing remaining packages
+RUN apt-get install -y git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
+
+RUN apt-get clean
+
+# Force sudoers to not being asked password 
+RUN echo %sudo 		ALL=NOPASSWD: ALL >> /etc/sudoers
+
+# Add a user just for running app
+# RUN useradd -m -G sudo sid
+
+# USER sid
+# WORKDIR /home/sid
+
+# Ruby installs
+
+RUN git clone https://github.com/sstephenson/rbenv.git /root/.rbenv
+RUN git clone https://github.com/sstephenson/ruby-build.git /root/.rbenv/plugins/ruby-build
+RUN sudo /root/.rbenv/plugins/ruby-build/install.sh
+ENV PATH /root/.rbenv/bin:$PATH
+RUN echo 'eval "$(rbenv init -)"' >> /etc/profile.d/rbenv.sh # or /etc/profile
+RUN echo 'eval "$(rbenv init -)"' >> .bashrc
+
+RUN rbenv install 2.2.2
+RUN rbenv global 2.2.2
+RUN echo "gem: --no-document" > ~/.gemrc
+
+RUN rm -rf /var/cache/apt/* /tmp/*
+
+RUN apt-get install -y gem
+
+RUN gem install bundler
+
+ADD docker-entrypoint.sh /home/sid/docker-entrypoint.sh
+ADD setup.sh /home/sid/setup.sh
+
+ENV RAILS_ENV=development
+
+# EXPOSE 3000:3000
+
+ENTRYPOINT /home/sid/docker-entrypoint.sh

@@ -1,0 +1,56 @@
+<div class="container padder">
+	<div>
+		<div class="breadcrumb">
+		  <a href="javascript:void(0)">Home</a>
+		  <a href="javascript:void(0)">Apartments</a>
+		  <a href="">Masterior Bedroom Design</a>
+		</div>
+	</div>
+	<div class="spacer"></div>
+	<div class="apartment__block">
+		<div class="master">
+			<div class="image" style="background: url('/assets/temp/master-1.jpg');min-height:400px;width:100%;background-size: cover;background-repeat: no-repeat;">
+			</div>
+		</div>
+		<div class="content">
+			<h4>Masterior Bedroom Design</h4>
+			<p>Price Rs.<span class='money'>2,00,000</span>/-</p>
+			<div class="spacer"></div>
+			<h5>Portfolio Images</h5>
+			<div id='portfolio-images'>
+				<div class="image"><%= image_tag 'temp/sub-1' %></div>
+				<div class="image"><%= image_tag 'temp/su-2' %></div>
+				<div class="image"><%= image_tag 'temp/sub-3' %></div>
+				<div class="image"><%= image_tag 'temp/sub-4' %></div>
+			</div>
+			<div class="spacer"></div>
+			<button class="full">Book Now</button>
+		</div>
+	</div>
+	<div class="spacer"></div>
+	<div class="apartment__block">
+		<div class="master">
+			<h4>Description</h4>
+			<p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
+			<div class="spacer"></div>
+			<h4>Specifications</h4>
+			<p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
+		</div>
+		<div class="content">
+			<h4>Floor Plan</h4>
+			<div class="image">
+				<%= image_tag 'temp/floor-plan' %>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<% content_for :javascript do %>
+	<script>
+		$(document).ready(function() {
+
+		});
+	</script>
+<% end %>

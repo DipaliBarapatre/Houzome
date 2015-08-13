@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="ROBOTS" content="NOODP" />
+  <meta name="viewport" content="initial-scale=1" />
+  <%#
+    Configure default and controller-, and view-specific titles in
+    config/locales/en.yml. For more see:
+    https://github.com/calebthompson/title#usage
+  %>
+  <title><%= page_title %></title>
+  <script src="//use.typekit.net/gsi0jaz.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <%= stylesheet_link_tag :apartments, media: "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= body_class %>">
+  <%= render "flashes" -%>
+  <%= render 'shared/header' %>
+  <%= yield %>
+  <%= render 'refills/footer' %>
+  
+  <%= javascript_include_tag :apartments %>
+  <%= yield :javascript %>
+</body>
+</html>

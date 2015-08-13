@@ -1,40 +1,84 @@
 <div class="container padder">
-	<div class="breadcrumb">
-	  <a href="javascript:void(0)">Home</a>
-	  <a href="javascript:void(0)">Builders</a>
+	<div>
+		<div class="breadcrumb">
+		  <a href="javascript:void(0)">Home</a>
+		  <a href="javascript:void(0)">Apartments</a>
+		  <a href="">Chandrika Apartments</a>
+		</div>
 	</div>
-
+	<div class="spacer"></div>
+	<div class="image-gradient-dynamic">
+	  <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png" alt="">
+	  <div class="overlay"></div>
+	  <div class="copy">
+	    <p>Apartment Image </p>
+	  </div>
+	</div>
+	<div class="spacer"></div>
 
 	<div class="search-tools">
 	  <div class="search-field">
-	  	<label for="city">City</label>
+	  	<label for="city">Tower</label>
 	  	<select name="city" id="city" style="display:none">
-	  		<option value="">Choose city</option>
-	  		<option value="sd">Bangalore</option>
-	  		<option value="sdsd">Chennai</option>
-	  		<option value="sjdkl">Hyderabad</option>
+	  		<option value="">Tower name</option>
+	  		<option value="sd">Tower 1</option>
+	  		<option value="sdsd">Tower 2</option>
+	  		<option value="sjdkl">Tower 3</option>
 	  	</select>
 	  </div>
 	  <div class="search-field last">
-	  	<label for="builder">Builder</label>
+	  	<label for="builder">Flat No</label>
 	  	<select name="builder" id="builder" style="display:none"> 
-	  		<option value="">Choose Builder</option>
-	  		<option value="sd">Nilkamal</option>
-	  		<option value="sdsd">Puravankara</option>
-	  		<option value="sjdkl">Brigade</option>
-	  		<option value="tes">Mantri</option>
+	  		<option value="">Search Flat number</option>
+	  		<option value="sd">101</option>
+	  		<option value="sdsd">301</option>
+	  		<option value="sjdkl">502</option>
+	  		<option value="tes">105</option>
 	  	</select>
 	  </div>
 	</div>
 
+	<div id='apartments' class="padder">
+		<div class="each">
+			<div class="hover-tile-outer">
+			  <div class="hover-tile-container">
+			    <div class="hover-tile hover-tile-visible"></div>
+			    <div class="hover-tile hover-tile-hidden">
+			      <h4>Master Design 1</h4>
+			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
+			    </div>
+			  </div>
+			</div>
+		</div>
+		<div class="each">
+			<div class="hover-tile-outer">
+			  <div class="hover-tile-container">
+			    <div class="hover-tile hover-tile-visible"></div>
+			    <div class="hover-tile hover-tile-hidden">
+			      <h4>Master Design 2</h4>
+			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
+			    </div>
+			  </div>
+			</div>
+		</div>
+		<div class="each">
+			<div class="hover-tile-outer">
+			  <div class="hover-tile-container">
+			    <div class="hover-tile hover-tile-visible"></div>
+			    <div class="hover-tile hover-tile-hidden">
+			      <h4>Master Design 3</h4>
+			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
+			    </div>
+			  </div>
+			</div>
+		</div>
 
-	<div id='builders'class="padder">
 		<div class="each">
 			<div class="hover-tile-outer">
 			  <div class="hover-tile-container">
 			    <div class="hover-tile hover-tile-visible"></div>
 			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Builder 1</h4>
+			      <h4>Master Design 4</h4>
 			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
 			    </div>
 			  </div>
@@ -45,55 +89,31 @@
 			  <div class="hover-tile-container">
 			    <div class="hover-tile hover-tile-visible"></div>
 			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Builder 2</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Builder 3</h4>
+			      <h4>Master Design 5</h4>
 			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
 			    </div>
 			  </div>
 			</div>
 		</div>
 
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Builder 4</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Builder 5</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
+		<div class="each custom">
+			<%= image_tag 'retro-pattern' %>
+			<div class="plus">
+				<i class='fa fa-search-plus'></i>
 			</div>
 		</div>
 
 	</div>
+
+	
 </div>
+
 
 
 <% content_for :javascript do %>
 	<script>
 		$(document).ready(function() {
-		 $('select').selectize();
+			$('select').selectize();
 		});
 	</script>
 <% end %>
