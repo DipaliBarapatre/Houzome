@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
-
-
   root 'homepage#index'
 
-  resources :builders, only: [:index, :show]
-  resources :apartments, only: [:index, :show] do
-	resources :flats, only: [:show]
+  constraints :subdomain => "admin" do
+    scope :module => 'hzadmin' do
+    	resources :apartments
+    	resources :builders
+    end
   end
+  
+  resources :builders
+  resources :apartments, only: [:index, :show] do
+  resources :flats, only: [:show]
+  end
+
+
 
 end

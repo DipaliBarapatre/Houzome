@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="ROBOTS" content="NOODP" />
+  <meta name="viewport" content="initial-scale=1" />
+  <%#
+    Configure default and controller-, and view-specific titles in
+    config/locales/en.yml. For more see:
+    https://github.com/calebthompson/title#usage
+  %>
+  <title><%= page_title %></title>
+  <script src="//use.typekit.net/gsi0jaz.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <%= stylesheet_link_tag :admin, media: "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= body_class %>">
+  <div id="wrapper" class="preload">
+      <aside id="sidebar">
+        <div class="sidebar-inner">
+          <div class="main-menu">
+            <ul>
+              <li class="active">
+                <a href="index.html">
+                  <span class="menu-icon">
+                    <i class="fa fa-users"></i> 
+                  </span>
+                  <span class="text">
+                    Customers
+                  </span>
+                  <span class="menu-hover"></span>
+                </a>
+              </li>
+              <li>
+                <a href="index.html">
+                  <span class="menu-icon">
+                    <i class="fa fa-cart-arrow-down"></i> 
+                  </span>
+                  <span class="text">
+                    Orders
+                  </span>
+                  <span class="menu-hover"></span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="menu-icon">
+                    <i class="fa fa-building"></i> 
+                  </span>
+                  <span class="text">
+                    Builders
+                  </span>
+                  <span class="menu-hover"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div><!-- /sidebar-inner -->
+      </aside>
+
+      <div id="main-container">
+        <div id="top-nav">
+          
+        </div>
+        
+        <%= yield %>
+
+        <footer>
+          <div class="row">
+            <div class="col-sm-6">
+              
+              <span>
+                © 2015 <strong>Houzome</strong>. ALL Rights Reserved. 
+              </span>
+            </div><!-- /.col -->
+          </div><!-- /.row-->
+        </footer>
+      </div><!-- /main-container -->
+      
+    </div>
+
+  <%= javascript_include_tag :admin %>
+  <%= yield :javascript %>
+</body>
+</html>

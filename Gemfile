@@ -29,7 +29,9 @@ gem "font-awesome-rails"
 gem "flutie" # automatic titles
 gem "selectize-rails"
 
-
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
+gem 'refile-s3'
 
 group :development do
   # gem "spring"
