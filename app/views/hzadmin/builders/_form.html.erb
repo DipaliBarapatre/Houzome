@@ -1,7 +1,9 @@
 <%= simple_form_for @builder do |f| %>
 	<%= f.input :name %>
-	<%= f.input :email %>
+	<%= f.input :email, input_html: { :placeholder => "abc@domain.com"} %>
 	<%= f.input :contact %>
 	<%= f.input :description %>
+	<%= f.attachment_field :image %>
+	<br>
 	<%= f.submit %>
 <% end %>

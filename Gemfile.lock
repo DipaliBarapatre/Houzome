@@ -4,6 +4,16 @@ GIT
   specs:
     refills (0.1.0)
 
+GIT
+  remote: https://github.com/refile/refile.git
+  revision: 0dc2072a90020c940102b099387c34297f89b321
+  branch: master
+  specs:
+    refile (0.5.5)
+      mime-types
+      rest-client (~> 1.8)
+      sinatra (~> 1.4.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -138,6 +148,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -170,10 +182,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.15.0)
     rake (10.4.2)
-    refile (0.5.5)
-      mime-types
-      rest-client (~> 1.8)
-      sinatra (~> 1.4.5)
     refile-mini_magick (0.1.0)
       mini_magick (~> 4.0)
       refile (~> 0.5)
@@ -248,9 +256,10 @@ DEPENDENCIES
   normalize-rails (~> 3.0.0)
   pg
   pry-rails
+  quiet_assets
   rack-timeout
   rails (= 4.2.1)
-  refile
+  refile!
   refile-mini_magick
   refile-s3
   refills!

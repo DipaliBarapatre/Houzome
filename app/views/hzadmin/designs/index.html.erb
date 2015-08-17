@@ -1,0 +1,30 @@
+<div class="main-header">
+    <div class="align">
+    	<div class="page-title">
+    	    <h3>Master Designs</h3>
+    	    <span></span>
+    	</div><!-- /page-title -->
+    	
+    	<ul class="page-stats">
+        <%= button_to 'New Master-Design', new_design_path, method: 'get' %>
+    	</ul><!-- /page-stats -->
+    </div>
+</div>
+
+<div style="margin-top:45px">
+  <div class="cards">
+    <% @designs.each do |d| %>
+      <div class="card">
+        <div class="card-image">
+        <%= image_tag attachment_url(d, :master_image, :fill, 300, 300, format: "jpg") %>
+        </div>
+        <div class="card-header">
+          <%= d.name %>
+        </div>
+        <div class="card-copy">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -29,12 +29,15 @@ gem "font-awesome-rails"
 gem "flutie" # automatic titles
 gem "selectize-rails"
 
-gem "refile", require: "refile/rails"
+# gem "refile", require: "refile/rails"
+gem 'refile', require: ["refile/rails"], git: 'https://github.com/refile/refile.git', branch: 'master'
 gem "refile-mini_magick"
 gem 'refile-s3'
 
 group :development do
   # gem "spring"
+
+gem 'quiet_assets'
   # gem "spring-commands-rspec"
   # gem "web-console"
 end

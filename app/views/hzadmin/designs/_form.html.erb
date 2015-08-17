@@ -1,0 +1,7 @@
+<%= simple_form_for @design do |f| %>
+	<%= f.input :name %>
+	<label for="">Master Image</label>
+	<%= f.attachment_field :master_image %>
+	<br>
+	<%= f.submit %>
+<% end %>

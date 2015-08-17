@@ -8,13 +8,19 @@ layout 'admin'
   end
 
   def new
-    @builder = Builder.new    
+    @builder = Builder.new
+  end
+
+  def show
+    @builder = Builder.find(params[:id])
+    @apartments = @builder.apartments
   end
 
   def create
     @builder = Builder.new(permit_params)
     if @builder.save
-      redirect_to builders_path, :notice => 'Builder registered'
+      flash[:success] = 'Builder registered'
+      redirect_to builders_path
     else
       render 'new'
     end
@@ -27,17 +33,18 @@ layout 'admin'
   def update
     @builder = Builder.find(params[:id])
     if @builder.update(permit_params)
-      redirect_to builders_path, :notice => 'Builder updated'
+      flash[:success] = 'Builder Updated'
+      redirect_to builders_path
     else
       render 'edit'
     end
   end
 
   def destroy
-    binding.pry
     @builder = Builder.find(params[:id])
     if @builder.destroy
-      redirect_to builders_path, :notice => "Builder deleted"
+      flash[:error] = "Builder Deleted"
+      redirect_to builders_path
     else
       render :text => "Something went wrong while deleting this builder."
     end
@@ -45,7 +52,7 @@ layout 'admin'
 
   private
     def permit_params
-     params.require(:builder).permit(:name, :email, :contact, :description)
+     params.require(:builder).permit(:name, :email, :contact, :description, :image)
     end
 end
 end

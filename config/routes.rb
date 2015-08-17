@@ -3,16 +3,15 @@ Rails.application.routes.draw do
 
   constraints :subdomain => "admin" do
     scope :module => 'hzadmin' do
-    	resources :apartments
-    	resources :builders
+      resources :builders do
+        resources :apartments  
+      end
+      resources :designs
     end
   end
   
   resources :builders
   resources :apartments, only: [:index, :show] do
-  resources :flats, only: [:show]
+    resources :flats, only: [:show]
   end
-
-
-
 end

@@ -1,0 +1,50 @@
+<div class="main-header">
+    <div class="align">
+    	<div class="page-title">
+    	    <h3>Builders</h3>
+    	    <span></span>
+    	</div><!-- /page-title -->
+    	
+    	<ul class="page-stats">
+        <%= button_to 'New Apartment', new_builder_apartment_path(@builder.id), method: 'get' %>
+    	</ul><!-- /page-stats -->
+    </div>
+</div>
+<%= render 'application/flashes' -%>
+
+<div class="padding-md">
+  <div>
+    <dl>
+      <dt>Builder</dt>
+      <dd><%= @builder.name %></dd>
+    </dl>
+    <hr>
+  </div>
+  
+  <div class="cards">
+    <% @apartments.each do |a| %>
+      <div class="card">
+        <div class="card-image">
+        <%= image_tag 'sdf'  %>
+        </div>
+        <div class="card-header">
+          <%= link_to builder_apartment_path(@builder.id, a.id) do %>
+            <span><%= a.name.try(:capitalize) %> <i class='fa fa-external-link'></i></span>
+          <% end %>
+        </div>
+        <div class="card-copy">
+          <a href=""><i class='fa fa-pencil-square-o'></i> Edit</a> &nbsp; 
+          <%= link_to 'sdf', method: :delete do %>
+            <i class='fa fa-trash-o'></i> Remove
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% if @apartments.blank? %>
+        <div>
+          <p>No apartments created for this builder. Start one <%= button_to 'New Apartment', new_builder_apartment_path(@builder.id), method: 'get' %></p>
+        </div>
+    <% end %>
+
+</div>

@@ -46,8 +46,9 @@ textarea {
   }
 
   &:focus {
-    border-color: $action-color;
-    box-shadow: $form-box-shadow-focus;
+    // border-color: $action-color;
+    border: 2px solid #52BAD4;
+    // box-shadow: $form-box-shadow-focus;
     outline: none;
   }
 }

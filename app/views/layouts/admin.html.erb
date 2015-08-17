@@ -22,7 +22,7 @@
           <div class="main-menu">
             <ul>
               <li class="active">
-                <a href="index.html">
+                <a href="#">
                   <span class="menu-icon">
                     <i class="fa fa-users"></i> 
                   </span>
@@ -33,7 +33,7 @@
                 </a>
               </li>
               <li>
-                <a href="index.html">
+                <a href="#">
                   <span class="menu-icon">
                     <i class="fa fa-cart-arrow-down"></i> 
                   </span>
@@ -44,12 +44,23 @@
                 </a>
               </li>
               <li>
-                <a href="">
+                <a href="<%= builders_path %>">
                   <span class="menu-icon">
                     <i class="fa fa-building"></i> 
                   </span>
                   <span class="text">
                     Builders
+                  </span>
+                  <span class="menu-hover"></span>
+                </a>
+              </li>
+              <li>
+                <a href="<%= designs_path %>">
+                  <span class="menu-icon">
+                    <i class="fa fa-desktop"></i> 
+                  </span>
+                  <span class="text">
+                    Master Design
                   </span>
                   <span class="menu-hover"></span>
                 </a>
@@ -66,7 +77,7 @@
         
         <%= yield %>
 
-        <footer>
+        <!-- <footer>
           <div class="row">
             <div class="col-sm-6">
               
@@ -75,7 +86,7 @@
               </span>
             </div><!-- /.col -->
           </div><!-- /.row-->
-        </footer>
+        </footer> -->
       </div><!-- /main-container -->
       
     </div>

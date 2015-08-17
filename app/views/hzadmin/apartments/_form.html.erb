@@ -1,0 +1,15 @@
+<%= simple_form_for @apartment, url: builder_apartments_path do |f| %>
+	<%= f.input :name %>
+	<%= f.association :builder %>
+	<br>
+	<%= f.submit %>
+<% end %>
+
+
+<% content_for :javascript do %>
+	<script>
+		$(document).ready(function() {
+		  $('select').selectize();
+		});
+	</script>
+<% end %>
