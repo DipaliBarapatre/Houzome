@@ -1,0 +1,30 @@
+weba:
+  build: .
+  expose:
+    - 3000
+
+webb:
+  build: .
+  expose:
+    - 3000
+
+webc:
+  build: .
+  expose:
+    - 3000
+
+haproxy:
+  image: hypriot/rpi-haproxy
+  volumes:
+   - haproxy:/haproxy-override
+  links:
+   - weba
+   - webb
+   - webc
+  ports:
+   - "3000:3000"
+   - "3010:3010"
+
+  expose:
+   - "3000"
+   - "3010"

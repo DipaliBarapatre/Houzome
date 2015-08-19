@@ -8,14 +8,16 @@
 @import "base/base";
 @import "refills/flashes";
 @import "plugins/animate";
-@import "shared/header";
-@import "shared/tools";
 @import "refills/flex-boxes";
 @import "refills/footer";
 @import "refills/comment";
 @import "refills/tables";
 @import "refills/hero";
 @import "refills/cards";
+@import "refills/stats";
+@import "refills/breadcrumbs";
+@import "shared/header";
+@import "shared/tools";
 @import "font-awesome";
 @import 'selectize';
 @import 'selectize.default';
@@ -87,5 +89,50 @@ body{
 		  -webkit-transform: translateY(33%);
 		  -ms-transform: translateY(33%);
 		  transform: translateY(33%);
+	}
+}
+
+.apartment_details{
+	@include clearfix();
+	.flats{
+		@include span-columns(6);
+	}
+	.towers{
+		@include span-columns(6);	
+		@include omega();
+	}
+}
+
+table{
+	caption{
+		text-align: left;
+		padding-bottom: 10px;
+
+		form{
+			float: right;
+			opacity: 0;
+			@include transition(opacity 0.3s ease-in 0s);
+		}
+		.text{
+			display: inline-block;
+			font-weight: bold;
+			cursor: pointer;
+		}
+	}
+}
+
+.hiddener{
+	&:hover{
+		form{
+			opacity: 1;
+		}
+	}	
+}
+
+.comment .comment-image-big{
+	img{
+		width: 9em;
+		padding: 0px;
+		background: none;
 	}
 }

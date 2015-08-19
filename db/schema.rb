@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817095436) do
+ActiveRecord::Schema.define(version: 20150819114305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150817095436) do
     t.integer  "builder_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "image_id"
   end
 
   create_table "builders", force: :cascade do |t|
@@ -38,6 +39,45 @@ ActiveRecord::Schema.define(version: 20150817095436) do
     t.string   "master_image_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "floor_plan_id",                array: true
   end
 
+  add_index "designs", ["floor_plan_id"], name: "index_designs_on_floor_plan_id", using: :gin
+
+  create_table "flats", force: :cascade do |t|
+    t.text     "numbers",       default: [],              array: true
+    t.string   "floor_plan_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "fp_id"
+  end
+
+  create_table "flats_towers", id: false, force: :cascade do |t|
+    t.integer "flat_id",  null: false
+    t.integer "tower_id", null: false
+  end
+
+  add_index "flats_towers", ["flat_id", "tower_id"], name: "index_flats_towers_on_flat_id_and_tower_id", using: :btree
+  add_index "flats_towers", ["tower_id", "flat_id"], name: "index_flats_towers_on_tower_id_and_flat_id", using: :btree
+
+  create_table "images", force: :cascade do |t|
+    t.string   "file_id"
+    t.integer  "design_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "images", ["design_id"], name: "index_images_on_design_id", using: :btree
+
+  create_table "towers", force: :cascade do |t|
+    t.string   "name",         null: false
+    t.integer  "apartment_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "towers", ["apartment_id"], name: "index_towers_on_apartment_id", using: :btree
+
+  add_foreign_key "images", "designs"
+  add_foreign_key "towers", "apartments"
 end

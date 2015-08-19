@@ -6,20 +6,78 @@
     	</div><!-- /page-title -->
     	
     	<ul class="page-stats">
-    	    
+        <%= button_to 'Builders', builders_path, method: 'get' %>
     	</ul><!-- /page-stats -->
     </div>
 </div>
 
-<div class="hero">
+<div class="hero" style="background: url('<%= @apartment.image_url %>'); background-size: cover">
   <div class="hero-inner">
-    <a href="" class="hero-logo"><%= image_tag 'builder_logo' %></a>
+    <a href="" class="hero-logo"><%= image_tag attachment_url(@apartment.builder, :image, :fill, 150, 150, format: "jpg") %></a>
       <div class="hero-copy">
-          <h1><%= @apartment.name.try(:capitalize) %></h1>
-          <p>  </p>    
+          <h1><%= @apartment.name.try(:upcase) %></h1>
+          <p>------ Location -------</p>    
       </div>
   </div>
 </div>
+
 <div class="padding-md">
-  
+  <div>
+    <!-- <div class="stats">
+      <ul>
+        <li>@apartment.towers.count<span>Towers</span></li>
+        <li>@apartment.flats.count<span>Flats</span></li>
+      </ul>
+    </div> -->
+    <div class="breadcrumb">
+      <%= link_to 'Builders', builders_path %>
+      <%= link_to @apartment.builder.name, builder_path(params[:builder_id]) %>
+      <%= link_to @apartment.name, builder_apartment_path(params[:builder_id], params[:id]) %>
+    </div>
+  </div>
+
+  <div class="apartment_details">
+    <% unless @apartment.towers.blank? %>
+      <div class="flats hiddener">
+        <table>
+          <caption><span class="text">Flats </span> <%= button_to 'New Flat', new_builder_apartment_flat_path(params[:builder_id], params[:id]), method: :get, :class => 'btn-small' %></caption>
+       </table>
+       <% @apartment.flats.each do |f| %>
+       <div class="comment clearfix">
+         <div class="comment-image comment-image-big">
+           <%= image_tag attachment_url(f, :fp) %>
+         </div>
+         <div class="comment-content">
+           <h1><%= f.floor_plan_id %></h1>
+           <p><%= f.numbers.join(', ') %></p>
+           <p class="comment-detail">Towers: <%= f.towers.pluck("name").join(', ') %></p>
+         </div>
+       </div>
+       <% end %>
+       <% if @apartment.flats.blank? %>
+          <div class="comment clearfix">
+              <p>No flats created for this apartment. Start one</p>      
+              <%= button_to 'New Flat', new_builder_apartment_flat_path(params[:builder_id], params[:id]), method: :get, class: 'btn-small' %>
+          </div>
+       <% end %>
+      </div>
+    <% end %>
+    <div class="towers hiddener">
+      <table>
+        <caption><span class="text">Towers </span> <%= button_to 'New Tower', new_builder_apartment_tower_path(params[:builder_id], params[:id]), method: :get, :class => 'btn-small' %></caption>
+          <% @apartment.towers.each do |t| %>
+            <tr>
+              <td><%= t.name %></td>
+              <td style="text-align:right"><a href=""><i class='fa fa-edit'> </i> edit</a> </td>
+            </tr>
+          <% end %>
+          <% if @apartment.towers.blank? %>
+              <td>No towers created for this apartment. Start one <br>
+              <%= button_to 'New Tower', new_builder_apartment_tower_path(params[:builder_id], params[:id]), method: :get, :class => 'btn-small' %>
+              </td>      
+          <% end %>
+      </table>
+    </div>
+
+  </div>  
 </div>

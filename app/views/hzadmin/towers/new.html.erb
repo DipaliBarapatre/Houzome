@@ -1,0 +1,35 @@
+<div class="main-header">
+    <div class="align">
+      <div class="page-title">
+          <h3>New Tower</h3>
+          <span></span>
+      </div><!-- /page-title -->
+      
+      <ul class="page-stats">
+        <%= button_to 'Builders', builders_path, method: 'get' %>
+      </ul><!-- /page-stats -->
+    </div>
+</div>
+
+<div class="hero" style="background: url('<%= @apartment.image_url %>'); background-size: cover">
+  <div class="hero-inner">
+    <a href="" class="hero-logo"><%= image_tag attachment_url(@apartment.builder, :image, :fill, 150, 150, format: "jpg") %></a>
+      <div class="hero-copy">
+          <h1><%= @apartment.name.try(:upcase) %></h1>
+          <p>------ Location -------</p>    
+      </div>
+  </div>
+</div>
+
+<div class="padding-md">
+  <div>
+    <div class="breadcrumb">
+      <%= link_to 'Builders', builders_path %>
+      <%= link_to @apartment.builder.name, builder_path(params[:builder_id]) %>
+      <%= link_to @apartment.name, builder_apartment_path(params[:builder_id], params[:apartment_id]) %>
+    </div>
+  </div>
+  <div class="apartment_form">
+    <%= render 'form' %>
+  </div>  
+</div>

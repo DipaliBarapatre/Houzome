@@ -10,9 +10,9 @@ layout 'admin'
   end
 
   def show
-    @apartment = Apartment.find(params[:id])
-    @builder = @apartment.builder
+    @apartment = Apartment.includes(:builder, :towers, :flats).find(params[:id])
   end
+  
   def create
     @apartment = Apartment.new(permit_params)
     if @apartment.save
@@ -26,7 +26,7 @@ layout 'admin'
 
   private
     def permit_params
-      params.require(:apartment).permit(:builder_id, :name)     
+      params.require(:apartment).permit(:builder_id, :name, :image)
     end
 end
 end

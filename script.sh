@@ -8,4 +8,4 @@ app() {
 
 action=$1
 
-${action} 
+${action}

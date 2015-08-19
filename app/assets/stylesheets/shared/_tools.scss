@@ -54,3 +54,12 @@ body{
 		}
 	}
 }
+
+.btn-small{
+	font-size: 0.8em !important;
+	padding: 0.5em 0.75em !important;
+}
+
+.clearfix{
+	@include clearfix();
+}

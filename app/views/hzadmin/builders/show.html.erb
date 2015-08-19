@@ -1,7 +1,7 @@
 <div class="main-header">
     <div class="align">
     	<div class="page-title">
-    	    <h3>Builders</h3>
+    	    <h3><%= @builder.name.try(:upcase) %></h3>
     	    <span></span>
     	</div><!-- /page-title -->
     	
@@ -13,19 +13,22 @@
 <%= render 'application/flashes' -%>
 
 <div class="padding-md">
-  <div>
-    <dl>
-      <dt>Builder</dt>
-      <dd><%= @builder.name %></dd>
-    </dl>
-    <hr>
+  <div class="comment">
+    <div class="comment-image comment-image-big">
+      <%= image_tag attachment_url(@builder, :image, :fill, 300, 270, format: "jpg") %>
+    </div>
+    <div class="comment-content">
+      <h1><%= @builder.name.try(:upcase) %></h1>
+      <p><%= @builder.description %></p>
+      <p class="comment-detail">Created at <%= @builder.created_at.strftime("%d %M %y") %></p>
+    </div>
   </div>
-  
+
   <div class="cards">
     <% @apartments.each do |a| %>
       <div class="card">
         <div class="card-image">
-        <%= image_tag 'sdf'  %>
+          <a href="<%= builder_apartment_path(@builder.id, a.id) %>"><%= image_tag attachment_url(a, :image, format: "jpg") %></a>
         </div>
         <div class="card-header">
           <%= link_to builder_apartment_path(@builder.id, a.id) do %>
@@ -33,10 +36,10 @@
           <% end %>
         </div>
         <div class="card-copy">
-          <a href=""><i class='fa fa-pencil-square-o'></i> Edit</a> &nbsp; 
-          <%= link_to 'sdf', method: :delete do %>
+          <!-- <a href=""><i class='fa fa-pencil-square-o'></i> Edit</a> &nbsp;  -->
+           <!-- link_to , method: :delete do
             <i class='fa fa-trash-o'></i> Remove
-          <% end %>
+           -->
         </div>
       </div>
     <% end %>
