@@ -10,12 +10,14 @@
     https://github.com/calebthompson/title#usage
   %>
   <title><%= page_title %></title>
+  <%= yield :javascript_header %>
   <script src="//use.typekit.net/gsi0jaz.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
   <%= stylesheet_link_tag :apartments, media: "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
+  <%= render "analytics" %>
   <%= render "flashes" -%>
   <%= render 'shared/header' %>
   <%= yield %>

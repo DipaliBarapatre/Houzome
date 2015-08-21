@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  root 'homepage#index'
-
   constraints :subdomain => "admin" do
+    get '/' => 'builders#index'
     scope :module => 'hzadmin' do
       resources :builders do
         resources :apartments  do
@@ -12,8 +11,16 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :builders
+  resources :builders, as: :frontend_builders
   resources :apartments, only: [:index, :show] do
     resources :flats, only: [:show]
   end
+
+  scope 'api', module: 'api' do
+    resources :apartments, only: [:index, :show] do
+      resources :designs, only: [:index]
+    end
+  end
+
+  root 'homepage#index'
 end

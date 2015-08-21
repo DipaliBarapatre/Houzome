@@ -3,4 +3,7 @@
 //= require shared/header
 //= require plugins/owl.carousel
 //= require selectize
+//= require react
+//= require react_ujs
+//= require components/gatherdesigns
 //= require_self

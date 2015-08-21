@@ -33,6 +33,9 @@ gem "selectize-rails"
 gem 'refile', require: ["refile/rails"], git: 'https://github.com/refile/refile.git', branch: 'master'
 gem "refile-mini_magick"
 gem 'refile-s3'
+gem 'active_model_serializers'
+gem 'react-rails', '~> 1.0'
+
 
 group :development do
   # gem "spring"

@@ -22,21 +22,21 @@
   		<th></th>
   	</tr>
     <% @builders.each do |b| %>
-      <tr>
-        <td>
-          <%= link_to builder_path(b.id) do %>
-            <%= b.name %> <i class='fa fa-eye-slash'></i>
-          <% end %>
-        </td>
-        <td><a href="mailto:<%= b.email %>"><%= b.email %></a></td>
-        <td><a href="tel:<%= b.contact %>"><%= b.contact %></a></td>
-        <td>
-          <a href="<%= edit_builder_path(b.id) %>"><i class='fa fa-pencil-square-o'></i> Edit</a> &nbsp; 
-          <%= link_to builder_path(b.id), method: :delete do %>
-            <i class='fa fa-trash-o'></i> Remove
-          <% end %>
-        </td>
-      </tr>
+    <tr>
+      <td>
+        <%= link_to builder_path(b.id) do %>
+          <%= b.name %> <i class='fa fa-eye-slash'></i>
+        <% end %>
+      </td>
+      <td><a href="mailto:<%= b.email %>"><%= b.email %></a></td>
+      <td><a href="tel:<%= b.contact %>"><%= b.contact %></a></td>
+      <td>
+        <a href="<%= edit_builder_path(b.id) %>"><i class='fa fa-pencil-square-o'></i> Edit</a> &nbsp; 
+        <%= link_to builder_path(b.id), method: :delete do %>
+          <i class='fa fa-trash-o'></i> Remove
+        <% end %>
+      </td>
+    </tr>
     <% end %>
   </table>
 </div>

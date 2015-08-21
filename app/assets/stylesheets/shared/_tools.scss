@@ -63,3 +63,10 @@ body{
 .clearfix{
 	@include clearfix();
 }
+
+.white{
+	color: white;
+	h4{
+		color: white;
+	}
+}

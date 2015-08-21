@@ -29,63 +29,21 @@
 
 
 	<div id='builders'class="padder">
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Builder 1</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
+		<% @builders.each do |b| %>
+			<div class="each">
+				<div class="hover-tile-outer" style="background: url(<%= b.image_url %>);background-size:cover">
+				  <div class="hover-tile-container">
+				    <div class="hover-tile hover-tile-visible"></div>
+				    <div class="hover-tile hover-tile-hidden">
+				      <a href="<%= frontend_builder_path(b.id) %>" class='white'>
+				      	<h4><%= b.name.try(:upcase) %></h4>
+				      	<p style="min-height:97px"><%= b.description %></p>
+				      </a>
+				    </div>
+				  </div>
+				</div>
 			</div>
-		</div>
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Builder 2</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Builder 3</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Builder 4</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Builder 5</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-
+		<% end %>
 	</div>
 </div>
 

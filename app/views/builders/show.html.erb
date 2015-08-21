@@ -7,11 +7,10 @@
 
 
 	<div class="side-image">
-	  <div class="images-wrapper" style="background: url('/assets/temp/apartment.jpg'); background-repeat: no-repeat;background-size: contain;background-color: white;border: 1px solid #e3e3e3"></div>
+	  <div class="images-wrapper" style="background: url('<%= @builder.image_url %>'); background-repeat: no-repeat;background-size: cover;background-color: white;border: 1px solid #e3e3e3"></div>
 	  <div class="side-image-content">
-	      <h4>Builder Name</h4>
-	      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam assumenda nihil suscipit obcaecati sit, cum quod corporis adipisci ipsam, fugiat, quae error. Eaque commodi, dicta quidem explicabo mollitia inventore quibusdam.
-	      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam assumenda nihil suscipit obcaecati sit, cum quod corporis adipisci ipsam, fugiat, quae error. Eaque commodi, dicta quidem explicabo mollitia inventore quibusdam.</p>
+	      <h4><%= @builder.name.try(:upcase) %></h4>
+	      <p><%= @builder.description %></p>
 	  </div>
 	</div>
 
@@ -19,63 +18,21 @@
 
 	<h2 style="margin-top:100px">Apartments</h2>
 	<div id='builders'class="padder">
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible" style="background: url('/assets/temp/apartment-1.jpg');background-size:contain"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Apartment 1</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
+		<% @builder.apartments.each do |a| %>
+			<div class="each">
+				<div class="hover-tile-outer">
+				  <div class="hover-tile-container">
+				    <div class="hover-tile hover-tile-visible" style="background: url('<%= a.image_url %>');background-size:cover"></div>
+				    <div class="hover-tile hover-tile-hidden">
+				      <a href="<%= apartment_path(a.id) %>" class='white'>
+				      	<h4><%= a.name.try(:upcase) %></h4>
+				      	<p style="min-height:97px"></p>
+				      </a>
+				    </div>
+				  </div>
+				</div>
 			</div>
-		</div>
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible" style="background: url('/assets/temp/apartment-2.jpg');background-size:contain"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Apartment 2</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Apartment 3</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Apartment 4</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Apartment 5</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-
+		<% end %>
 	</div>
 </div>
 

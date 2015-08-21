@@ -88,5 +88,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { host: ENV.fetch("HOST") }
+
+  config.react.variant = :production
+  config.react.addons = true # defaults to false
 end
 Rack::Timeout.timeout = (ENV["RACK_TIMEOUT"] || 10).to_i

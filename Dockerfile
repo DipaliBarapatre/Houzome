@@ -1,18 +1,11 @@
-FROM ruby:2.2.2
-RUN apt-get update -qq && apt-get install -y build-essential nodejs npm nodejs-legacy mysql-client vim
-RUN npm install -g phantomjs
+FROM rails:onbuild
 
-RUN mkdir /myapp
+ENV APP_HOME /app/myapp
+RUN mkdir -p $APP_HOME
+WORKDIR $APP_HOME
 
-WORKDIR /tmp
-COPY Gemfile Gemfile
-COPY Gemfile.lock Gemfile.lock
-RUN bundle install
+ADD Gemfile* $APP_HOME/
+RUN bundle install --jobs=4
+RUN test -f $APP_HOME/tmp/pids/server.pid && rf $APP_HOME/tmp/pids/server.pid; true
 
-ADD . /myapp
-ADD ./docker-entrypoint.sh /myapp/docker-entrypoint.sh
-ADD ./setup.sh /myapp/setup.sh
-
-WORKDIR /myapp
-
-ENTRYPOINT /myapp/docker-entrypoint.sh
+ADD . $APP_HOME

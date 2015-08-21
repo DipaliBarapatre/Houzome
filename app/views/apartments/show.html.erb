@@ -8,101 +8,26 @@
 	</div>
 	<div class="spacer"></div>
 	<div class="image-gradient-dynamic">
-	  <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png" alt="">
+	  <%= image_tag attachment_url(@apartment, :image) %>
 	  <div class="overlay"></div>
 	  <div class="copy">
-	    <p>Apartment Image </p>
+	    <p><%= @apartment.name.try(:upcase) %></p>
 	  </div>
 	</div>
 	<div class="spacer"></div>
 
-	<div class="search-tools">
-	  <div class="search-field">
-	  	<label for="city">Tower</label>
-	  	<select name="city" id="city" style="display:none">
-	  		<option value="">Tower name</option>
-	  		<option value="sd">Tower 1</option>
-	  		<option value="sdsd">Tower 2</option>
-	  		<option value="sjdkl">Tower 3</option>
-	  	</select>
-	  </div>
-	  <div class="search-field last">
-	  	<label for="builder">Flat No</label>
-	  	<select name="builder" id="builder" style="display:none"> 
-	  		<option value="">Search Flat number</option>
-	  		<option value="sd">101</option>
-	  		<option value="sdsd">301</option>
-	  		<option value="sjdkl">502</option>
-	  		<option value="tes">105</option>
-	  	</select>
-	  </div>
-	</div>
+	<div id="master-design">
+		
+	</div>	
 
 	<div id='apartments' class="padder">
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Master Design 1</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Master Design 2</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Master Design 3</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Master Design 4</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>Master Design 5</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-
+		
 		<div class="each custom">
 			<%= image_tag 'retro-pattern' %>
 			<div class="plus">
 				<i class='fa fa-search-plus'></i>
 			</div>
 		</div>
-
 	</div>
 
 	
@@ -112,8 +37,12 @@
 
 <% content_for :javascript do %>
 	<script>
-		$(document).ready(function() {
-			$('select').selectize();
-		});
+		
+	</script>
+<% end %>
+
+<% content_for :javascript_header do %>
+	<script>
+		window.apartment_id = <%= params[:id] %>;
 	</script>
 <% end %>
