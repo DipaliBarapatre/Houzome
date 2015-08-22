@@ -18,7 +18,6 @@ layout 'admin'
   end
 
   def create
-    binding.pry
     @design = Design.new(permit_params)
     if @design.save
       redirect_to designs_path, :notice => 'Design registered'
@@ -51,7 +50,7 @@ layout 'admin'
 
   private
     def permit_params
-     params.require(:design).permit(:name, :master_image, floor_plan_id: [], images_files: [])
+     params.require(:design).permit(:name, :master_image, :description, :specifications, :selling_price, floor_plan_id: [], images_files: [])
     end
 end
 end

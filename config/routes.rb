@@ -12,9 +12,11 @@ Rails.application.routes.draw do
   end
   
   resources :builders, as: :frontend_builders
-  resources :apartments, only: [:index, :show] do
-    resources :flats, only: [:show]
-  end
+  resources :apartments, only: [:index, :show]
+  resources :designs, only: [:show]
+  resources :orders, only: [:create]
+  get 'custom/design' => 'custom#design'
+  post 'custom/design' => 'custom#create'
 
   scope 'api', module: 'api' do
     resources :apartments, only: [:index, :show] do

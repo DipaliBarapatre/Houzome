@@ -1,6 +1,6 @@
 
 #{$all-button-inputs},
-button {
+button, .btn {
   @include appearance(none);
   -webkit-font-smoothing: antialiased;
   background-color: $dark-gray;

@@ -7,7 +7,7 @@
 
 
 	<div class="side-image">
-	  <div class="images-wrapper" style="background: url('<%= @builder.image_url %>'); background-repeat: no-repeat;background-size: cover;background-color: white;border: 1px solid #e3e3e3"></div>
+	  <div class="images-wrapper" style="background: url('<%= @builder.image_url %>'); background-repeat: no-repeat;background-size: contain;background-color: white;border: 1px solid #e3e3e3"></div>
 	  <div class="side-image-content">
 	      <h4><%= @builder.name.try(:upcase) %></h4>
 	      <p><%= @builder.description %></p>

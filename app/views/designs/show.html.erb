@@ -1,0 +1,97 @@
+<div class="container padder">
+	<div>
+		<div class="breadcrumb">
+		  <a href="javascript:void(0)">Home</a>
+		  <a href="javascript:void(0)">Apartments</a>
+		  <a href="">Masterior Bedroom Design</a>
+		</div>
+	</div>
+	<div class="spacer"></div>
+	<div class="apartment__block">
+		<div class="master">
+			<div class="image" style="background: url('<%= @design.master_image_url %>');min-height:347px;width:100%;background-size: cover;background-repeat: no-repeat;">
+			</div>
+		</div>
+		<div class="content">
+			<h4><%= @design.name %></h4>
+			<p>Price Rs.<span class='money'><%= @design.selling_price %></span>/-</p>
+			<div class="spacer"></div>
+			<h5>Portfolio Images</h5>
+			<div id='portfolio-images'>
+				<% @design.images.each do |img| %>
+					<div class="image"><%= image_tag img.file_url, data: {action: 'zoom'} %></div>
+				<% end %>
+			</div>
+			<div class="spacer"></div>
+			
+			<div class="modal">
+			  <label for="booknow">
+			    <div class="modal-trigger btn"  id="booker">
+			    	Book Now
+			    </div>
+			  </label>
+			  <input class="modal-state" id="booknow" type="checkbox" />
+			  <div class="modal-fade-screen">
+			    <div class="modal-inner">
+			      <div class="modal-close" for="booknow"></div>
+			      <h1>Leave us your details</h1>
+			      <p class="modal-intro"></p>
+			      <p class="modal-content">
+			      	<%= simple_form_for @order, remote: true do |o| %>
+			      		<%= o.input :apartment_id, as: :hidden, input_html: { value: params[:apartment]} %>
+			      		<%= o.input :flat, as: :hidden, input_html: { value: params[:flat].split('-')[1]} %>
+			      		<%= o.input :order_type, as: :hidden, input_html: { value: 'Normal'} %>
+			      		<%= o.input :name, required: true %>
+			      		<%= o.input :email, required: true %>
+			      		<%= o.input :mobile %>
+			      		<%= o.submit 'Submit Request'  %>
+			      	<% end %>
+			      </p>
+			    </div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<div class="spacer"></div>
+	<div class="apartment__block">
+		<div class="master">
+			<h4>Description</h4>
+			<p><%= @design.description %></p>
+			<div class="spacer"></div>
+			<h4>Specifications</h4>
+			<p><%= @design.specifications %></p>
+		</div>
+		<div class="content">
+			<h4>Floor Plan</h4>
+			<div class="image">
+			<% unless @flat.blank? %>
+				<%= image_tag @flat.first.fp_url, data: {action: 'zoom'} %>
+			<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<% content_for :javascript do %>
+	<script>
+		$(function() {
+		  $("#booknow").on("change", function() {
+		    if ($(this).is(":checked")) {
+		      $("body").addClass("modal-open");
+		    } else {
+		      $("body").removeClass("modal-open");
+		    }
+		  });
+
+		  $(".modal-fade-screen, .modal-close").on("click", function() {
+		    $(".modal-state:checked").prop("checked", false).change();
+		  });
+
+		  $(".modal-inner").on("click", function(e) {
+		    e.stopPropagation();
+		  });
+		});
+	</script>
+<% end %>

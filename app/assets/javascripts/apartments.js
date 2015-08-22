@@ -1,7 +1,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require shared/header
+//= require plugins/transition
 //= require plugins/owl.carousel
+//= require plugins/zoom
+//= require plugins/sweet_alert
 //= require selectize
 //= require react
 //= require react_ujs

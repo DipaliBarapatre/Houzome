@@ -1,9 +1,12 @@
 <%= simple_form_for @design do |f| %>
 	<%= f.input :name %>
+	<%= f.input :selling_price %>
 	<%= f.input :floor_plan_id, collection: Flat::FLOORPLANS, input_html: {multiple: true} %>
+	<%= f.input :description %>
+	<%= f.input :specifications %>
 	<label for="">Master Image</label>
 	<%= f.attachment_field :master_image %>
-	<label for="">Sub Images</label>
+	<label for="">Portfolio Images</label>
 	<%= f.attachment_field :images_files, multiple: true %>
 	<p><i class='fa fa-info-circle'> </i> Can select multiple images at once using Ctrl + Click</p>
 	<br>

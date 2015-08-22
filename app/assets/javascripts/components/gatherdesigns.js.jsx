@@ -4,7 +4,9 @@ var MasterDesign = React.createClass({
 			searchData: {towers: [], flatnos: []},
 			tower: '',
 			flat: '',
-			designs: []
+			designs: [],
+			tower_id: '',
+			flat_id: ''
 		}
 	},
 
@@ -17,9 +19,10 @@ var MasterDesign = React.createClass({
 	},
 
 	loadDesigns: function(bhk){
-		$.get("/api/apartments/" + window.apartment_id + "/designs?flat="+ bhk, function(designs){
+		$.get("/api/apartments/" + window.apartment_id + "/designs?flat="+ bhk, function(data){
 			this.setState({
-				designs: designs
+				designs: data.designs,
+				flat_id: bhk
 			});
 		}.bind(this));
 	},
@@ -41,6 +44,9 @@ var MasterDesign = React.createClass({
 				 			this.state.flat.refreshOptions();	
 				 			this.state.flat.enable();
 				 			this.state.flat.open();
+				 			this.setState({
+				 				tower_id: dat.tower
+				 			})
 				 		}
 				 	}.bind(this))
 				 }.bind(this)
@@ -69,7 +75,7 @@ var MasterDesign = React.createClass({
 
 	render: function(){
 		var designs = this.state.designs.map(function(design){
-			return <Design design={design} />;
+			return <Design design={design} tower={this.state.tower_id} flat={this.state.flat_id}/>;
 		}.bind(this));
 
 		return(
@@ -77,6 +83,12 @@ var MasterDesign = React.createClass({
 		        <Search/>
 		        <div id="apartments" className="padder">
 		        	{designs}
+		        	<div className="each custom">
+		        		<img src="/assets/retro-pattern-f10fc06d3c75eb867d71d8b2f1603ce9793739365eef5a0164f77c175f54564f.jpg" alt="Retro pattern" />
+		        		<div className="plus">
+		        			<i className='fa fa-search-plus'></i>
+		        		</div>
+		        	</div>
 		        </div>
 		    </div>
 		);
@@ -93,6 +105,7 @@ var Search = React.createClass({
 		var tower_style = {
 			display: 'none'
 		};
+
 		return(
 			<div className="search-tools">
 			  <div className="search-field">
@@ -110,15 +123,22 @@ var Search = React.createClass({
 })
 
 var Design = React.createClass({
+	handler: function(a){
+		window.location.replace('/designs/' + a.target.dataset.url + '?apartment=' + window.apartment_id + '&tower=' + this.props.tower + '&flat=' + this.props.flat)
+	},
+
 	render: function(){
+		var box_style = {
+			backgroundImage: 'url(' + this.props.design.image_url + ')',
+		};
 
 		return(
-			<div className="each">
-				<div className="hover-tile-outer">
-				  <div className="hover-tile-container">
+			<div className="each" onClick={this.handler} data-url={this.props.design.slug}>
+				<div className="hover-tile-outer" style={box_style} data-url={this.props.design.slug}>
+				  <div className="hover-tile-container" data-url={this.props.design.slug}>
 				    <div className="hover-tile hover-tile-visible"></div>
-				    <div className="hover-tile hover-tile-hidden">
-				      <h4>{this.props.design.name}</h4>
+				    <div data-url={this.props.design.slug} className="hover-tile hover-tile-hidden">
+				      <h4 data-url={this.props.design.slug} className='design-name'>{this.props.design.name}</h4>
 				      <p></p>
 				    </div>
 				  </div>

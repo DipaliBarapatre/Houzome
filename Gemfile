@@ -28,6 +28,8 @@ gem "unicorn"
 gem "font-awesome-rails"
 gem "flutie" # automatic titles
 gem "selectize-rails"
+gem 'aasm'
+
 
 # gem "refile", require: "refile/rails"
 gem 'refile', require: ["refile/rails"], git: 'https://github.com/refile/refile.git', branch: 'master'
@@ -35,6 +37,7 @@ gem "refile-mini_magick"
 gem 'refile-s3'
 gem 'active_model_serializers'
 gem 'react-rails', '~> 1.0'
+gem 'friendly_id'
 
 
 group :development do

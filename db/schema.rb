@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819114305) do
+ActiveRecord::Schema.define(version: 20150822101012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,12 +37,17 @@ ActiveRecord::Schema.define(version: 20150819114305) do
   create_table "designs", force: :cascade do |t|
     t.string   "name"
     t.string   "master_image_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "floor_plan_id",                array: true
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "floor_plan_id",                                        array: true
+    t.string   "slug"
+    t.text     "description"
+    t.decimal  "selling_price",   precision: 8, scale: 2
+    t.text     "specifications"
   end
 
   add_index "designs", ["floor_plan_id"], name: "index_designs_on_floor_plan_id", using: :gin
+  add_index "designs", ["slug"], name: "index_designs_on_slug", unique: true, using: :btree
 
   create_table "flats", force: :cascade do |t|
     t.text     "numbers",       default: [],              array: true
@@ -69,6 +74,24 @@ ActiveRecord::Schema.define(version: 20150819114305) do
 
   add_index "images", ["design_id"], name: "index_images_on_design_id", using: :btree
 
+  create_table "orders", force: :cascade do |t|
+    t.string   "name"
+    t.string   "mobile"
+    t.string   "email"
+    t.string   "aasm_state"
+    t.text     "apartment_address"
+    t.string   "flat"
+    t.string   "city"
+    t.text     "special_request"
+    t.string   "number"
+    t.string   "order_type"
+    t.integer  "apartment_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "orders", ["apartment_id"], name: "index_orders_on_apartment_id", using: :btree
+
   create_table "towers", force: :cascade do |t|
     t.string   "name",         null: false
     t.integer  "apartment_id"
@@ -79,5 +102,6 @@ ActiveRecord::Schema.define(version: 20150819114305) do
   add_index "towers", ["apartment_id"], name: "index_towers_on_apartment_id", using: :btree
 
   add_foreign_key "images", "designs"
+  add_foreign_key "orders", "apartments"
   add_foreign_key "towers", "apartments"
 end
