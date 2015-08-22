@@ -38,6 +38,8 @@ gem 'refile-s3'
 gem 'active_model_serializers'
 gem 'react-rails', '~> 1.0'
 gem 'friendly_id'
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'kaminari'
 
 
 group :development do

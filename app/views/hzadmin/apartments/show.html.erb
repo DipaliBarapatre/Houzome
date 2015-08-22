@@ -16,7 +16,7 @@
     <a href="" class="hero-logo"><%= image_tag attachment_url(@apartment.builder, :image, :fill, 150, 150, format: "jpg") %></a>
       <div class="hero-copy">
           <h1><%= @apartment.name.try(:upcase) %></h1>
-          <p>------ Location -------</p>    
+          <p><%= @apartment.city.try(:capitalize) %></p>    
       </div>
   </div>
 </div>

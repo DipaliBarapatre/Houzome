@@ -1,6 +1,17 @@
 <%= simple_form_for @apartment, url: builder_apartments_path do |f| %>
 	<%= f.input :name %>
 	<%= f.input :builder_id, as: :hidden, input_html: { value: params[:builder_id]} %>
+	<div class="boxer">
+		<div class="half">
+			<%= f.input :city %>
+			<%= f.input :latitude %>
+			<%= f.input :longitude %>		
+		</div>
+		<div class="half_last">
+			<div id="map"></div>	
+		</div>
+	</div>
+	
 	<label for="">Image</label>
 	<%= f.attachment_field :image %>
 	<br>
@@ -13,5 +24,23 @@
 		$(document).ready(function() {
 		  $('select').selectize();
 		});
+		  
+		L.mapbox.accessToken = 'pk.eyJ1Ijoic2lkdHJpIiwiYSI6IjAyNTEyZmNjZGUwZjYzYWFhOGQ3YjJhNDI4NWVkY2NkIn0.SS5hL6eoI91X_u0TNEQ6tw';
+		var map = L.mapbox.map('map', 'mapbox.streets')
+		    .setView([12.96876181, 77.59506225], 12);
+		var marker = L.marker([12.96876181, 77.59506225], {
+		    icon: L.mapbox.marker.icon({
+		      'marker-color': '#f86767'
+		    }),
+		    draggable: true
+		}).addTo(map);
+		marker.on('dragend', ondragend);
+		
+
+		function ondragend() {
+		    var m = marker.getLatLng();
+		    $('#apartment_latitude').val(m.lat)
+		    $('#apartment_longitude').val(m.lng)
+		}
 	</script>
 <% end %>

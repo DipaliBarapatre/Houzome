@@ -1,7 +1,7 @@
 <div class="container padder">
 	<div class="breadcrumb">
-	  <a href="javascript:void(0)">Home</a>
-	  <a href="javascript:void(0)">Apartments</a>
+	  <a href="/">Home</a>
+	  <a href="">Apartments</a>
 	</div>
 
 
@@ -27,65 +27,25 @@
 	  </div>
 	</div>
 
-
+	<div style="text-align:right">
+		<%= paginate @apartments %>
+	</div>
 	<div id='apartments' class="padder">
+	<% @apartments.each do |a| %>
 		<div class="each">
-			<div class="hover-tile-outer">
+			<div class="hover-tile-outer" style="background: url(<%= a.image_url %>);background-size:cover">
 			  <div class="hover-tile-container">
 			    <div class="hover-tile hover-tile-visible"></div>
 			    <div class="hover-tile hover-tile-hidden">
-			      <h4>apartment 1</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
+			      <a href="<%= apartment_path(a.id) %>" class='white'>
+			      	<h4><%= a.name.try(:upcase) %></h4>
+			      	<p style="min-height:97px"><%= a.city.try(:capitalize) %></p>
+			      </a>
 			    </div>
 			  </div>
 			</div>
 		</div>
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>apartment 2</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>apartment 3</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>apartment 4</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-		<div class="each">
-			<div class="hover-tile-outer">
-			  <div class="hover-tile-container">
-			    <div class="hover-tile hover-tile-visible"></div>
-			    <div class="hover-tile hover-tile-hidden">
-			      <h4>apartment 5</h4>
-			      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
-			    </div>
-			  </div>
-			</div>
-		</div>
-
+	<% end %>
 	</div>
 </div>
 

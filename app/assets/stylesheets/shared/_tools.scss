@@ -70,3 +70,16 @@ body{
 		color: white;
 	}
 }
+
+#map { height:250px; }
+
+.boxer{
+	@include clearfix();
+	.half{
+		@include span-columns(6);
+	}
+	.half_last{
+		@include span-columns(6);	
+		@include omega();
+	}
+}
