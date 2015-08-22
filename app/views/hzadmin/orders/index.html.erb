@@ -1,0 +1,35 @@
+<div class="main-header">
+    <div class="align">
+    	<div class="page-title">
+    	    <h3>Orders</h3>
+    	    <span></span>
+    	</div><!-- /page-title -->
+    	
+    	<ul class="page-stats">
+        
+    	</ul><!-- /page-stats -->
+    </div>
+</div>
+
+<%= render "application/flashes" -%>
+
+<div class="padding-md">
+  <table>
+  	<tr>
+      <th>Order</th>
+  		<th>Customer</th>
+      <th>Email</th>
+      <th>Status</th>
+      
+  	</tr>
+    <% @orders.each do |o| %>
+    <tr>
+      <td><%= o.number %></td>
+      <td><%= o.name %></td>
+      <td><a href="mailto:<%= o.email %>"><%= o.email %></a></td>
+      <td><span class='badge badge-alert'><%= o.aasm_state.split('_').collect(&:capitalize).join(' ') %></span> &nbsp;&nbsp;&nbsp;<a href="<%= order_path(o.number) %>"><i class='fa fa-eye-slash'></i> View</a></td>
+      
+    </tr>
+    <% end %>
+  </table>
+</div>

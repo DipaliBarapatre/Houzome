@@ -19,7 +19,7 @@ class Order < ActiveRecord::Base
 	end
   
 	def generate_number(options = {})
-	  options[:prefix] ||= 'O'
+	  options[:prefix] ||= 'H'
 	  super(options)
 	end
 end

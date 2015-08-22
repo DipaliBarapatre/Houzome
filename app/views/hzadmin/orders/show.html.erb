@@ -1,0 +1,32 @@
+<div class="main-header">
+    <div class="align">
+    	<div class="page-title">
+    	    <h3>Order</h3>
+    	    <span></span>
+    	</div><!-- /page-title -->
+    	
+    	<ul class="page-stats">
+        
+    	</ul><!-- /page-stats -->
+    </div>
+</div>
+
+<%= render "application/flashes" -%>
+
+<div class="padding-md">
+    <ul>
+    <li><h4><%= (@order.order_type == "Custom") ? 'Custom Request' : 'Booking' %></h4></li>
+      <li>Name: <%= @order.name %></li>
+      <li>Contact: <%= @order.mobile %></li>
+      <li>City: <%= @order.city %></li>
+      <li>Apartment: <%= @order.apartment.name %></li>
+      <li>Flat: <%= @order.flat %></li>
+      <li>Special Request: <%= @order.special_request %></li>
+      <li>Status: 
+        <%= simple_form_for @order do |f| %>
+          <%= f.input :aasm_state, label: false, collection: ['under_progress', 'client_follow_up','customizations_requested','customization_quote ','interior_finalized','payments_done','order_completed','client_not_interested'] %> 
+          <%= f.submit %>
+        <% end %>
+      </li>
+    </ul>
+</div>

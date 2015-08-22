@@ -7,6 +7,8 @@ Rails.application.routes.draw do
         end
       end
       resources :designs
+      resources :orders
+      resources :customers
     end
     get '/' => 'hzadmin/builders#index'
   end
