@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
   belongs_to :apartment
+  belongs_to :design
   include AASM
   include NumberGenerator # Used as global to generate random number with perfix overwrite with 
   extend FriendlyId

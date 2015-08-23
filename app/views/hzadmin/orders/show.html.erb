@@ -15,18 +15,51 @@
 
 <div class="padding-md">
     <ul>
-    <li><h4><%= (@order.order_type == "Custom") ? 'Custom Request' : 'Booking' %></h4></li>
-      <li>Name: <%= @order.name %></li>
-      <li>Contact: <%= @order.mobile %></li>
-      <li>City: <%= @order.city %></li>
-      <li>Apartment: <%= @order.apartment.name %></li>
-      <li>Flat: <%= @order.flat %></li>
-      <li>Special Request: <%= @order.special_request %></li>
-      <li>Status: 
-        <%= simple_form_for @order do |f| %>
-          <%= f.input :aasm_state, label: false, collection: ['under_progress', 'client_follow_up','customizations_requested','customization_quote ','interior_finalized','payments_done','order_completed','client_not_interested'] %> 
-          <%= f.submit %>
+    <li><h4>Order Type:  <%= (@order.order_type == "Custom") ? 'Custom Request' : 'Booking' %></h4></li>
+    <hr>
+      <div class="boxer">
+        <div class="half">
+          <li><label for=""> Name:</label> <%= @order.name %></li>
+          <li><b>Mobile:</b> <a href="tel:<%= @order.mobile %>"><%= @order.mobile %></a></li>
+          <li><label for=""> City:</label> <%= @order.city %></li>    
+          <li><label for=""> Email:</label>  <a href="mailto:<%= @order.email %>"><%= @order.email %></a></li>
+        </div>
+        <div class="half_last">
+          <li><label for="">Apartment:</label> <%= @order.apartment.try(:name).blank? ? @order.apartment_address : @order.apartment.try(:name) %></li>
+          <li>
+          <% unless @order.design.blank? %>
+            <label for="">Master Design:</label> <%= @order.design.name %>
+          <% end %>
+          </li>
+
+          <li><b>Flat:</b> <%= @order.flat %></li>
+          <li><label for="">Special Request:</label> <%= @order.special_request %></li>    
+          <%= simple_form_for @order do |f| %>
+          <div class="boxer">
+            <div class="half">
+              <%= f.input :aasm_state, label: 'State', collection: ['under_progress', 'client_follow_up','customizations_requested','customization_quote ','interior_finalized','payments_done','order_completed','client_not_interested'] %>
+              <% if @order.order_type == 'Custom' %>
+                <%= f.input :price %>
+              <% end %>
+            </div>
+            <div class="half_last">
+              <%= f.input :edd, label: 'Expected Date of Delivery', html5: true %>
+              <%= f.submit :style => 'margin-top:16px' %>
+            </div>
+
+          </div>
         <% end %>
-      </li>
+        </div>
+      </div>
     </ul>
 </div>
+
+
+
+<% content_for :javascript do %>
+  <script>
+  $(document).ready(function(){
+    $('select').selectize()
+  })
+  </script>
+<% end %>

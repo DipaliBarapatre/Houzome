@@ -13,6 +13,6 @@ class OrdersController < ApplicationController
 
   private
   	def permit_params
-  		params.require(:order).permit(:apartment_id, :email, :flat, :mobile, :name, :order_type)
+  		params.require(:order).permit(:apartment_id, :email, :flat, :mobile, :name, :order_type, :design_id)
   	end
 end

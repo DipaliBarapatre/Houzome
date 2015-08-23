@@ -18,17 +18,19 @@
   	<tr>
       <th>Order</th>
   		<th>Customer</th>
-      <th>Email</th>
+      <th>Price</th>
+      <th>EDD</th>
       <th>Status</th>
-      
+      <th></th>
   	</tr>
     <% @orders.each do |o| %>
     <tr>
       <td><%= o.number %></td>
       <td><%= o.name %></td>
-      <td><a href="mailto:<%= o.email %>"><%= o.email %></a></td>
-      <td><span class='badge badge-alert'><%= o.aasm_state.split('_').collect(&:capitalize).join(' ') %></span> &nbsp;&nbsp;&nbsp;<a href="<%= order_path(o.number) %>"><i class='fa fa-eye-slash'></i> View</a></td>
-      
+      <td><%= o.design.blank? ? "#{o.price}/-" : "#{o.design.selling_price}/-" %></td>
+      <td><%= o.edd %></td>
+      <td><span class='badge badge-alert'><%= o.aasm_state.split('_').collect(&:capitalize).join(' ') %></span></td>
+      <td style="text-align:right"><a href="<%= order_path(o.number) %>"><i class='fa fa-eye-slash'></i> Detail</a></td>
     </tr>
     <% end %>
   </table>
