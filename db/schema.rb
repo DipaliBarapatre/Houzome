@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823085600) do
+ActiveRecord::Schema.define(version: 20150823120810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(version: 20150823085600) do
 
   add_index "designs", ["floor_plan_id"], name: "index_designs_on_floor_plan_id", using: :gin
   add_index "designs", ["slug"], name: "index_designs_on_slug", unique: true, using: :btree
+
+  create_table "designs_flats", id: false, force: :cascade do |t|
+    t.integer "design_id", null: false
+    t.integer "flat_id",   null: false
+  end
+
+  add_index "designs_flats", ["design_id", "flat_id"], name: "index_designs_flats_on_design_id_and_flat_id", using: :btree
+  add_index "designs_flats", ["flat_id", "design_id"], name: "index_designs_flats_on_flat_id_and_design_id", using: :btree
 
   create_table "flats", force: :cascade do |t|
     t.text     "numbers",       default: [],              array: true

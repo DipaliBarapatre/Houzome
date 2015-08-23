@@ -4,7 +4,7 @@ class DesignsController < ApplicationController
   def show
 	@design = Design.friendly.includes(:images).find(params[:id])
 	@apartment = Apartment.find(params[:apartment])
-	@flat = @apartment.towers.find_by_name(params[:tower]).flats.at(params[:flat].split('-')[1])
+	@flat = @apartment.towers.find_by_name(params[:tower]).flats.at(params[:flat])
 	@order = Order.new
   end
 end

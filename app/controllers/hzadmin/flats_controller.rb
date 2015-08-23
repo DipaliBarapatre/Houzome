@@ -6,9 +6,9 @@ class FlatsController < ApplicationController
     def new
     	@flat = Flat.new
     end
-
+    
     def create
-    	@flat = Flat.new(permit_params.slice(:floor_plan_id, :fp, :numbers, :tower_ids))
+      @flat = Flat.new(permit_params.slice(:floor_plan_id, :fp, :numbers, :tower_ids, :design_ids))
     	if @flat.save
     		flash[:success] = "Flat Created"
     		redirect_to builder_apartment_path(params[:flat][:builder_id], params[:flat][:apartment_id])
@@ -26,7 +26,7 @@ class FlatsController < ApplicationController
 
   	def permit_params
       params[:flat][:numbers] = params[:flat][:numbers].split(',')
-  		params.require(:flat).permit(:floor_plan_id, :fp, :apartment_id, :builder_id, numbers: [], tower_ids: [])
+  		params.require(:flat).permit(:floor_plan_id, :fp, :apartment_id, :builder_id, numbers: [], tower_ids: [], design_ids: [])
   	end
 end
 end

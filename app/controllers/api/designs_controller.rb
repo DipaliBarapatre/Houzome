@@ -1,7 +1,7 @@
 module Api
 class DesignsController < ApplicationController
   def index
-    @designs = Design.with_bhk(params[:flat].split('-').first)
+    @designs = Apartment.find(params[:apartment_id]).flats.at(params[:flat]).first.designs
     render json: @designs
   end
 
