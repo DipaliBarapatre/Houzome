@@ -26,7 +26,7 @@ layout 'admin'
 
   private
     def permit_params
-      params.require(:apartment).permit(:builder_id, :name, :image, :latitude, :longitude, :city)
+      params.require(:apartment).permit(:builder_id, :name, :image, :latitude, :longitude, :city, :area)
     end
 end
 end
