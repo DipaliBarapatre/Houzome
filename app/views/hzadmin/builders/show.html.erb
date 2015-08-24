@@ -20,7 +20,7 @@
     <div class="comment-content">
       <h1><%= @builder.name.try(:upcase) %></h1>
       <p><%= @builder.description %></p>
-      <p class="comment-detail">Created at <%= @builder.created_at.strftime("%d %M %y") %></p>
+      <p class="comment-detail">Created at <%= @builder.created_at.strftime("%d %B-%Y") %></p>
     </div>
   </div>
 
