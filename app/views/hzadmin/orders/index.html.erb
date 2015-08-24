@@ -27,7 +27,7 @@
     <tr>
       <td><%= o.number %></td>
       <td><%= o.name %></td>
-      <td><%= o.design.blank? ? "#{o.price}/-" : "#{o.design.selling_price}/-" %></td>
+      <td><%= o.design.blank? ? "#{o.price}" : "#{o.design.selling_price}" %></td>
       <td><%= o.edd %></td>
       <td><span class='badge badge-alert'><%= o.aasm_state.split('_').collect(&:capitalize).join(' ') %></span></td>
       <td style="text-align:right"><a href="<%= order_path(o.number) %>"><i class='fa fa-eye-slash'></i> Detail</a></td>
