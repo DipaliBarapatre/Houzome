@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823120810) do
+ActiveRecord::Schema.define(version: 20150824065215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150823120810) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "city"
+    t.text     "address"
   end
 
   create_table "builders", force: :cascade do |t|
@@ -40,12 +41,12 @@ ActiveRecord::Schema.define(version: 20150823120810) do
   create_table "designs", force: :cascade do |t|
     t.string   "name"
     t.string   "master_image_id"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.string   "floor_plan_id",                                        array: true
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "floor_plan_id",                                         array: true
     t.string   "slug"
     t.text     "description"
-    t.decimal  "selling_price",   precision: 8, scale: 2
+    t.decimal  "selling_price",   precision: 15, scale: 5
     t.text     "specifications"
   end
 

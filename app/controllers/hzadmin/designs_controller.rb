@@ -50,7 +50,7 @@ layout 'admin'
 
   private
     def permit_params
-     params.require(:design).permit(:name, :master_image, :description, :specifications, :selling_price, floor_plan_id: [], images_files: [])
+     params.require(:design).permit(:name, :master_image, :description, :specifications, :selling_price, images_files: [])
     end
 end
 end

@@ -4,8 +4,9 @@
 	<div class="boxer">
 		<div class="half">
 			<%= f.input :city %>
+			<%= f.input :address %>
 			<%= f.input :latitude %>
-			<%= f.input :longitude %>		
+			<%= f.input :longitude %>
 		</div>
 		<div class="half_last">
 			<div id="map"></div>	
@@ -26,8 +27,10 @@
 		});
 		  
 		L.mapbox.accessToken = 'pk.eyJ1Ijoic2lkdHJpIiwiYSI6IjAyNTEyZmNjZGUwZjYzYWFhOGQ3YjJhNDI4NWVkY2NkIn0.SS5hL6eoI91X_u0TNEQ6tw';
-		var map = L.mapbox.map('map', 'mapbox.streets')
+
+		var map = L.mapbox.map('map', 'sidtri.n8jb3ac4')
 		    .setView([12.96876181, 77.59506225], 12);
+		map.removeControl(map.attributionControl);
 		var marker = L.marker([12.96876181, 77.59506225], {
 		    icon: L.mapbox.marker.icon({
 		      'marker-color': '#f86767'
