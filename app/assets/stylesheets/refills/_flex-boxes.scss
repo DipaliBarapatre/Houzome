@@ -11,9 +11,9 @@
   $flex-box-width: 18em;
   $flex-box-color: transparentize($base-font-color, 0.3);
   $flex-box-top-colors: 
-    tomato, 
-    #72BFBF, 
-    #92B1E3, 
+    #9957B5, 
+    #C64D40, 
+    #3DB670, 
     #E3D743,
     #CCC,
     #F6C05C;
@@ -52,9 +52,9 @@
 
     img {
       display: block;
-      height: 3em;
+      height: 5em;
       margin: 0 auto 1em;
-      opacity: 0.4;
+      opacity: 0.9;
     }
 
     .flex-title {

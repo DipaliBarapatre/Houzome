@@ -18,6 +18,7 @@ layout 'admin'
   end
 
   def create
+    binding.pry
     @design = Design.new(permit_params)
     if @design.save
       redirect_to designs_path, :notice => 'Design registered'

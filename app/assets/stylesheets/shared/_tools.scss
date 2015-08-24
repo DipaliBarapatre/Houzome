@@ -42,8 +42,8 @@ body{
 	.plus{
 		position: absolute;
 		top: 20%;
-		left: 44%;
-		font-size: 53px;
+		left: 22%;
+		font-size: 33px;
 		color: darkgrey;
 		&:hover{
 			color: rgb(124, 121, 121);
@@ -53,6 +53,9 @@ body{
 			     -o-transition: color 0.5s;
 			        transition: color 0.5s;
 		}
+	}
+	&:hover{
+		cursor: pointer;
 	}
 }
 

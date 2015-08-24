@@ -1,6 +1,8 @@
 class BuildersController < ApplicationController
   def index
-	@builders = Builder.all  	
+	@q = Builder.ransack(params[:q])
+  	@builders = @q.result(distinct: true).page(params[:page]).per(10)
+  	@builder = Builder.new
   end
 
   def show

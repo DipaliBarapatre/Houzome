@@ -1,33 +1,24 @@
 <div class="container padder">
 	<div class="breadcrumb">
-	  <a href="/">Home</a>
-	  <a href="javascript:void(0)">Builders</a>
+	  <%= link_to 'Home', root_path %>
+	  <%= link_to 'Builders', '' %>
 	</div>
 
 
+	<%= search_form_for @q, builder: SimpleForm::FormBuilder, url: builders_path, html: {method: :get} do |f| %>
 	<div class="search-tools">
-	  <div class="search-field">
-	  	<label for="city">City</label>
-	  	<select name="city" id="city" style="display:none">
-	  		<option value="">Choose city</option>
-	  		<option value="sd">Bangalore</option>
-	  		<option value="sdsd">Chennai</option>
-	  		<option value="sjdkl">Hyderabad</option>
-	  	</select>
-	  </div>
-	  <div class="search-field last">
-	  	<label for="builder">Builder</label>
-	  	<select name="builder" id="builder" style="display:none"> 
-	  		<option value="">Choose Builder</option>
-	  		<option value="sd">Nilkamal</option>
-	  		<option value="sdsd">Puravankara</option>
-	  		<option value="sjdkl">Brigade</option>
-	  		<option value="tes">Mantri</option>
-	  	</select>
-	  </div>
+	  <%= f.input :apartments_city_eq, label: 'City', collection: Apartment.all.pluck(:city).uniq.compact, wrapper_html: {class: 'search-field' }%>
+	  <%= f.input :name_eq, label: 'Builder', collection: Builder.all.pluck(:name), wrapper_html: {class: 'search-field' } %>
+	  <%= f.submit 'Search', style: "margin-top: 26px" %>
+	  
 	</div>
-
-
+	<% end %>
+	
+	<div style="margin-top:20px">
+		<div style='float:right'><%= paginate @builders %></div>
+		<p>Haven't found your builder <a href="/custom/design">Click here</a></p>
+	</div>
+	
 	<div id='builders'class="padder">
 		<% @builders.each do |b| %>
 			<div class="each">

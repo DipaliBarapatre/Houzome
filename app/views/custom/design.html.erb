@@ -19,7 +19,7 @@
 			<%= o.input :name, required: true %>
 			<%= o.input :email, required: true %>
 			<%= o.input :mobile %>
-			<%= o.input :flat %>
+			<%= o.input :flat, input_html: {value: params[:flat]} %>
 			<%= o.input :apartment_address %>
 			<%= o.input :city %>
 			<%= o.input :special_request %>

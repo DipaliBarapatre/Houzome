@@ -2,7 +2,11 @@ class CustomController < ApplicationController
 layout 'apartments'
 
   def design
-	@order = Order.new	
+	 @order = Order.new	
+   if params[:apartment] && @apartment = Apartment.find(params[:apartment])
+    @order.apartment_address = @apartment.address
+    @order.city = @apartment.city
+   end
   end
 
   def create

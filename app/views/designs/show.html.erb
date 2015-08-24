@@ -15,7 +15,8 @@
 		<div class="content">
 			<h4><%= @design.name %></h4>
 			<p>Price Rs.<span class='money'><%= @design.selling_price %></span>/-</p>
-			<div class="spacer"></div>
+			<p><b>Apartment:</b> <%= @apartment.name %></p>
+			<p><b>Tower:</b> <%= params[:tower] %>&nbsp;&nbsp;&nbsp;<b>Flat:</b> <%= params[:flat] %></p>
 			<h5>Portfolio Images</h5>
 			<div id='portfolio-images'>
 				<% @design.images.each do |img| %>

@@ -73,6 +73,10 @@ var MasterDesign = React.createClass({
 		}.bind(this));
 	},
 
+	customDesign: function(){
+		window.location.replace('/custom/design?apartment=' + window.apartment_id + '&tower=' + this.state.tower_id + '&flat=' + this.state.flat_id)
+	},
+
 	render: function(){
 		var designs = this.state.designs.map(function(design){
 			return <Design design={design} tower={this.state.tower_id} flat={this.state.flat_id}/>;
@@ -81,12 +85,15 @@ var MasterDesign = React.createClass({
 		return(
 			<div>
 		        <Search/>
-		        <div id="apartments" className="padder">
-		        	{designs}
-		        	<div className="each custom">
-		        		<img src="/assets/retro-pattern-f10fc06d3c75eb867d71d8b2f1603ce9793739365eef5a0164f77c175f54564f.jpg" alt="Retro pattern" />
-		        		<div className="plus">
-		        			<i className='fa fa-search-plus'></i>
+		        <div className="padder">
+		        	<h4>Design Solutions for your House</h4>
+		        	<div id="apartments">
+		        		{designs}
+		        		<div className="each custom" onClick={this.customDesign}>
+		        			<img src="/assets/retro-pattern-f10fc06d3c75eb867d71d8b2f1603ce9793739365eef5a0164f77c175f54564f.jpg" alt="Retro pattern" />
+		        			<div className="plus">
+		        				<p>Custom Design</p>
+		        			</div>
 		        		</div>
 		        	</div>
 		        </div>
@@ -112,10 +119,13 @@ var Search = React.createClass({
 			  	<label htmlFor="tower">Tower</label>
 			  	<select name="tower" id="tower" style={tower_style}></select>
 			  </div>
-			  <div className="search-field last">
+			  <div className="search-field">
 			  	<label htmlFor="flat">Flat No</label>
 			  	<select name="flat" id="flat" style={tower_style}> 
 			  	</select>
+			  </div>
+			  <div className="search-field last">
+
 			  </div>
 			</div>
 		);

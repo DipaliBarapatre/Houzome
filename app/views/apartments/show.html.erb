@@ -1,9 +1,9 @@
 <div class="container padder">
 	<div>
 		<div class="breadcrumb">
-		  <a href="javascript:void(0)">Home</a>
-		  <a href="javascript:void(0)">Apartments</a>
-		  <a href="">Chandrika Apartments</a>
+		  <%= link_to 'Home', root_path %>
+		  <%= link_to 'Apartments', apartments_path %>
+		  <%= link_to @apartment.name, '' %>
 		</div>
 	</div>
 	<div class="spacer"></div>
