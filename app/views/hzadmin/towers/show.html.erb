@@ -1,7 +1,7 @@
 <div class="main-header">
     <div class="align">
       <div class="page-title">
-          <h3>New Flat</h3>
+          <h3>New Tower</h3>
           <span></span>
       </div><!-- /page-title -->
       
@@ -30,6 +30,13 @@
     </div>
   </div>
   <div class="apartment_form">
-    <%= render 'form', url: builder_apartment_flats_path(@builder.id, @apartment.id) %>
+    <p><b>Tower::</b> <%= @tower.name.try(:upcase) %></p>
+    <br>
+    <p><b>Flat numbers::</b> <%= @tower.flats.pluck(:numbers).flatten %></p>
+    <p><b>Floor Plans</b></p>
+    <p class="boxer">
+    <% @tower.flats.each do |f| %>
+      <%= attachment_image_tag(f, :fp, :fill, 150, 100) %> &nbsp;&nbsp;&nbsp; 
+    <% end %></p>
   </div>  
 </div>

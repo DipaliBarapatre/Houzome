@@ -21,6 +21,26 @@ before_filter :default_vars
   	end
   end
 
+  def show
+   @tower = Tower.find(params[:id]) 
+  end
+
+  def edit
+    @tower = Tower.find(params[:id])
+  end
+
+  def update
+    @tower = Tower.find(params[:id])
+    if @tower.update(permit_params.slice(:name, :apartment_id))
+      flash[:success] = "Tower Updated"
+      redirect_to builder_apartment_path(params[:tower][:builder_id], params[:tower][:apartment_id])
+    else
+      render 'edit'
+    end
+  end
+
+
+
 
 private
 	def default_vars

@@ -22,8 +22,7 @@
           <%= d.name %>
         </div>
         <div class="card-copy">
-          <p></p>
-          <p><%= truncate(d.description) %></p>
+          <p><a href="<%= edit_design_path(d.id) %>">Edit</a></p>
         </div>
       </div>
     <% end %>

@@ -1,7 +1,7 @@
 <div class="main-header">
     <div class="align">
       <div class="page-title">
-          <h3>New Flat</h3>
+          <h3>Edit Tower</h3>
           <span></span>
       </div><!-- /page-title -->
       
@@ -30,6 +30,6 @@
     </div>
   </div>
   <div class="apartment_form">
-    <%= render 'form', url: builder_apartment_flats_path(@builder.id, @apartment.id) %>
+    <%= render 'form', url: builder_apartment_tower_path(@builder.id, @apartment.id, @tower.id) %>
   </div>  
 </div>

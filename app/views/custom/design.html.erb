@@ -13,7 +13,10 @@
 </style>
 <div class="container padder">
 	<div class="custom_design_form">
-	<h2 style="text-align:center;margin-bottom:60px">Request Custom Design</h2>
+	<h2 style="text-align:center;margin-bottom:20px">Request Custom Design</h2>
+	<p style="text-align:center;margin-bottom:60px">
+		Haven't found your apartment listed here? or are you looking for interior designing of your home? Don't worry! please fill the form, we'll get back to you
+	</p>
 		<%= simple_form_for @order, url: custom_design_path do |o| %>
 			<%= o.input :order_type, as: :hidden, input_html: { value: 'Custom'} %>
 			<%= o.input :name, required: true %>

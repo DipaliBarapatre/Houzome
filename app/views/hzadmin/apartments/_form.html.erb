@@ -1,4 +1,4 @@
-<%= simple_form_for @apartment, url: builder_apartments_path do |f| %>
+<%= simple_form_for @apartment, url: url do |f| %>
 	<%= f.input :name %>
 	<%= f.input :builder_id, as: :hidden, input_html: { value: params[:builder_id]} %>
 	<div class="boxer">
@@ -16,6 +16,7 @@
 	
 	<label for="">Image</label>
 	<%= f.attachment_field :image %>
+	<%= attachment_image_tag(@apartment, :image, :fill, 300, 150) %>
 	<br>
 	<%= f.submit %>
 <% end %>

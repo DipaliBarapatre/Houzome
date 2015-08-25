@@ -51,6 +51,7 @@
            <h1><%= f.floor_plan_id %></h1>
            <p><%= f.numbers.join(', ') %></p>
            <p class="comment-detail">Towers: <%= f.towers.pluck("name").join(', ') %></p>
+           <a href="<%= edit_builder_apartment_flat_path(@apartment.builder.id, @apartment.id, f.id) %>"><i class='fa fa-edit'> </i> edit</a>
          </div>
        </div>
        <% end %>
@@ -68,7 +69,9 @@
           <% @apartment.towers.each do |t| %>
             <tr>
               <td><%= t.name %></td>
-              <td style="text-align:right"><a href=""><i class='fa fa-edit'> </i> edit</a> </td>
+              <td style="text-align:right">
+              <a href="<%= builder_apartment_tower_path(@apartment.builder.id, @apartment.id, t.id) %>"><i class='fa fa-eye'> </i> View</a>
+                <a href="<%= edit_builder_apartment_tower_path(@apartment.builder.id, @apartment.id, t.id) %>"><i class='fa fa-edit'> </i> edit</a> </td>
             </tr>
           <% end %>
           <% if @apartment.towers.blank? %>

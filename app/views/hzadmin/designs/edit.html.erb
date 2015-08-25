@@ -1,16 +1,16 @@
 <div class="main-header">
     <div class="align">
     	<div class="page-title">
-    	    <h3>New Master Design</h3>
-    	    <span></span>
+         <h3>Edit Master Design</h3>
+    	 <span></span>
     	</div><!-- /page-title -->
     	
     	<ul class="page-stats">
-    	   <%= button_to 'Design List', designs_path, method: 'get' %>
+    	 <%= button_to 'Design List', designs_path, method: 'get' %>
     	</ul><!-- /page-stats -->
     </div>
 </div>
 
 <div class="padding-md">
-  <%= render 'form', url: designs_path %>
+  <%= render 'form', url: design_path(@design.id) %>
 </div>

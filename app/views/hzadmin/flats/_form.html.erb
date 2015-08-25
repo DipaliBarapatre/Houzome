@@ -1,13 +1,14 @@
-<%= simple_form_for @flat, url: builder_apartment_flats_path do |f| %>
+<%= simple_form_for @flat, url: url do |f| %>
 	<%= f.input :apartment_id, as: :hidden, input_html: { value: params[:apartment_id]} %>
 	<%= f.input :builder_id, as: :hidden, input_html: { value: params[:builder_id]} %>
-	<%= f.input :numbers, label: 'Flat numbers', input_html: {id: 'numbers', value: '', placeholder: 'Add flat numbers separated by comma or tab'} %>
+	<%= f.input :numbers, label: 'Flat numbers', input_html: {id: 'numbers', value: @flat.numbers.join(','), placeholder: 'Add flat numbers separated by comma or tab'} %>
 	<%= f.input :floor_plan_id, collection: Flat::FLOORPLANS %>
 	<%= f.association :towers, collection: @apartment.towers %>
 	<%= f.association :designs, label: 'Master Designs', collection: Design.all %>
 	<br>
 	<label for="">Floor Plan Image</label>
 	<%= f.attachment_field :fp %>
+	<%= attachment_image_tag(@flat, :fp, :fill, 300, 150) %>
 	<br>
 	<%= f.submit %>
 <% end %>

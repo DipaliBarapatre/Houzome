@@ -15,6 +15,7 @@ class Mynotes
 	# What this does is allowing our application located at localhost:3000 to submit a file straight to our s3 bucket. Changing the  * in AllowedOrigin to your actual domain is required when you move to production.
 
 # TODO 3::
+# http://bourbon.burocrate.com/winston-churchill-watch-sells-for-12000/ for blog
 	def initialize
 	end
 end

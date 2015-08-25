@@ -30,6 +30,6 @@
     </div>
   </div>
   <div class="apartment_form">
-    <%= render 'form' %>
+    <%= render 'form', url: builder_apartment_towers_path(@builder.id, @apartment.id) %>
   </div>  
 </div>

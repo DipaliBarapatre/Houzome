@@ -17,6 +17,20 @@ class FlatsController < ApplicationController
     	end
     end
 
+    def edit
+      @flat = Flat.find(params[:id])
+    end
+    
+    def update
+      @flat = Flat.find(params[:id])
+      if @flat.update(permit_params.slice(:floor_plan_id, :fp, :numbers, :tower_ids, :design_ids))
+        flash[:success] = "Flat Updated"
+        redirect_to builder_apartment_path(params[:flat][:builder_id], params[:flat][:apartment_id])
+      else
+        render 'edit'
+      end
+    end
+
 
   private
   	def default_vars
