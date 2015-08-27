@@ -53,23 +53,20 @@
 		    <%= image_tag 'testimonial2.png', style: 'background:white;padding:0px' %>
 		  </div>
 		  <div class="comment-content">
-		    <h1>Ashok Sharma</h1><!-- <p class='comment-detail'>Bangalore</p> -->
+		    <h1>D.N Sharma</h1><!-- <p class='comment-detail'>Bangalore</p> -->
 		    <p>We were looking for a colorful rajasthani style living room and a modern kitchen. It was so tough to find in Patna. But Vijay Ji from Houzome made it possible for us!</p>
 		  </div>
 		</div>
 	</div>
 	<div class="blogposts">
-		<h2>Blog Posts</h2>
-		<!-- <div class="comment">
-		  <div class="comment-image">
-		    
-		  </div>
+		<h2>Blog</h2>
+		<div class="comment">
 		  <div class="comment-content">
-		    <h1>Blogpost 1</h1>
-		    <p>Testing message with Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
-		    <p class="comment-detail">Post created at 31st, august</p>
+		    <h1><a href="<%= blog_path %>">We make your house feel like home!</a></h1>
+			<p>The journey of transforming space between walls of a house to home is arduous as well as emotional for clients. At Houzome, we strive to give our clients the home that goes beyond their aspirations and expectations.</p>
+			<p><%= truncate('Our client had a very clear macro picture of how every corner of their home should look like. They were looking for a trusted partner who can fill in the micro-level details and execute the designs to realize their home. They reached out to us and we were more than happy to help.'){link_to 'More info', blog_path} %></p>
 		  </div>
-		</div> -->
+		</div>
 
 	</div>
 </div>
