@@ -8,7 +8,8 @@
 	<%= attachment_image_tag(@design, :master_image, :fill, 300, 150) %>
 	<label for="">Portfolio Images</label>
 	<%= f.attachment_field :images_files, multiple: true %>
-	<p><i class='fa fa-info-circle'> </i> Can select multiple images at once using Ctrl + Click</p>
+	<p><i class='fa fa-info-circle'> </i> Can select multiple images at once using Ctrl + Click (Total images size should not exceed 5 Mb)</p>
+	<p><a href="http://compressjpeg.com/" target="_blank">Compress</a> images if needed</p>
 	<br>
 	<%= f.submit %>
 <% end %>

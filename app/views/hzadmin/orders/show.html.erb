@@ -19,25 +19,26 @@
     <hr>
       <div class="boxer">
         <div class="half">
-          <li><label for=""> Name:</label> <%= @order.name %></li>
+          <li><b> Name:</b> <%= @order.name %></li>
           <li><b>Mobile:</b> <a href="tel:<%= @order.mobile %>"><%= @order.mobile %></a></li>
-          <li><label for=""> City:</label> <%= @order.city %></li>    
-          <li><label for=""> Email:</label>  <a href="mailto:<%= @order.email %>"><%= @order.email %></a></li>
+          <li><b> City:</b> <%= @order.city %></li>    
+          <li><b> Email:</b>  <a href="mailto:<%= @order.email %>"><%= @order.email %></a></li>
         </div>
         <div class="half_last">
-          <li><label for="">Apartment:</label> <%= @order.apartment.try(:name).blank? ? @order.apartment_address : @order.apartment.try(:name) %></li>
+          <li><b>Apartment:</b> <%= @order.apartment.try(:name).blank? ? @order.apartment_address : @order.apartment.try(:name) %></li>
+          <li><b>Flat:</b> <%= @order.flat %></li>
           <li>
           <% unless @order.design.blank? %>
             <label for="">Master Design:</label> <%= @order.design.name %>
           <% end %>
           </li>
 
-          <li><b>Flat:</b> <%= @order.flat %></li>
           <li><label for="">Special Request:</label> <%= @order.special_request %></li>    
+          <br>
           <%= simple_form_for @order do |f| %>
           <div class="boxer">
             <div class="half">
-              <%= f.input :aasm_state, label: 'State', collection: ['under_progress', 'client_follow_up','customizations_requested','customization_quote ','interior_finalized','payments_done','order_completed','client_not_interested'] %>
+              <%= f.input :aasm_state, label: 'Order State', collection: ['under_progress', 'client_follow_up','customizations_requested','customization_quote ','interior_finalized','payments_done','order_completed','client_not_interested'] %>
               <% if @order.order_type == 'Custom' %>
                 <%= f.input :price %>
               <% end %>
