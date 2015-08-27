@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     end
     get '/' => 'hzadmin/builders#index'
   end
+
+  match "/blog" => redirect("http://houzome.wordpress.com"), :as => :blog, via: [:get]
+
   
   resources :builders, as: :frontend_builders
   resources :apartments, only: [:index, :show]
