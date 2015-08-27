@@ -16,7 +16,7 @@
     <a href="" class="hero-logo"><%= image_tag attachment_url(@apartment.builder, :image, :fill, 150, 150, format: "jpg") %></a>
       <div class="hero-copy">
           <h1><%= @apartment.name.try(:upcase) %></h1>
-          <p>------ Location -------</p>    
+          <p></p>
       </div>
   </div>
 </div>
@@ -36,7 +36,7 @@
     <p><b>Floor Plans</b></p>
     <p class="boxer">
     <% @tower.flats.each do |f| %>
-      <%= attachment_image_tag(f, :fp, :fill, 150, 100) %> &nbsp;&nbsp;&nbsp; 
+      <%= attachment_image_tag(f, :fp, :fill, 150, 100, data: {action: 'zoom'}) %> &nbsp;&nbsp;&nbsp; 
     <% end %></p>
   </div>  
 </div>

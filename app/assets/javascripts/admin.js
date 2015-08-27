@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require shared/menu
 //= require plugins/owl.carousel
+//= require plugins/zoom
 //= require selectize
 //= require_self
