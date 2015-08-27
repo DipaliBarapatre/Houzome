@@ -88,3 +88,14 @@ body{
 		@include omega();
 	}
 }
+
+.box{
+	width: 40%;
+	margin: 40px auto;
+	padding: 20px 40px;
+	background: aliceblue;
+	border: 1px solid #e3e3e3;
+}
+.box-big{
+	width: 60%;
+}

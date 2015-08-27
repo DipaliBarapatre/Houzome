@@ -271,6 +271,7 @@ DEPENDENCIES
   aasm
   active_model_serializers
   awesome_print
+  aws-sdk (~> 2.0)
   bourbon (~> 4.2.0)
   bundler-audit
   coffee-rails (~> 4.1.0)

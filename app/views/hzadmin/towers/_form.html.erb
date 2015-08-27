@@ -1,7 +1,10 @@
-<%= simple_form_for @tower, url: url do |f| %>
-	<%= f.input :apartment_id, as: :hidden, input_html: { value: params[:apartment_id]} %>
-	<%= f.input :builder_id, as: :hidden, input_html: { value: params[:builder_id]} %>
-	<%= f.input :name %>
-	<br>
-	<%= f.submit %>
-<% end %>
+<div class="box">
+	<h4 style="text-align:center">Tower</h4>
+	<%= simple_form_for @tower, url: url do |f| %>
+		<%= f.input :apartment_id, as: :hidden, input_html: { value: params[:apartment_id]} %>
+		<%= f.input :builder_id, as: :hidden, input_html: { value: params[:builder_id]} %>
+		<%= f.input :name %>
+		<br>
+		<%= f.submit %>
+	<% end %>
+</div>
