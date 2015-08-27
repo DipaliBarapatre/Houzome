@@ -29,7 +29,7 @@ gem "font-awesome-rails"
 gem "flutie" # automatic titles
 gem "selectize-rails"
 gem 'aasm'
-
+gem "figaro"
 
 # gem "refile", require: "refile/rails"
 gem 'aws-sdk', '~> 2.0'
@@ -42,7 +42,6 @@ gem 'react-rails', '~> 1.0'
 gem 'friendly_id'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'kaminari'
-
 
 group :development do
   # gem "spring"

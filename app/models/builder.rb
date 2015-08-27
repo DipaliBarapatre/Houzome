@@ -1,6 +1,5 @@
 class Builder < ActiveRecord::Base
 	attachment :image
-
 	has_many :apartments, dependent: :destroy
 
 	validates_presence_of :name

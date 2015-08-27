@@ -40,6 +40,7 @@ Rails.application.configure do
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
+  config.assets.enabled = true
   config.assets.digest = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
@@ -66,7 +67,7 @@ Rails.application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = ENV.fetch("ASSET_HOST", ENV.fetch("HOST"))
-  config.action_controller.asset_host = 'houzome.com'
+  config.action_controller.asset_host = 'http://houzome.s3.amazonaws.com/'
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
