@@ -67,7 +67,7 @@ Rails.application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = ENV.fetch("ASSET_HOST", ENV.fetch("HOST"))
-  config.action_controller.asset_host = 'http://houzome.s3.amazonaws.com/'
+  config.action_controller.asset_host = 'http://houzome.com'
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

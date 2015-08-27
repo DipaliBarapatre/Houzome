@@ -1,7 +1,7 @@
 # config/initializers/refile.rb
 require "refile/s3"
 
-Refile.host = 'http://houzome.s3.amazonaws.com/'
+Refile.host = 'http://houzome.s3.amazonaws.com'
 
 aws = {
   access_key_id: "AKIAI7NKO52DJOS6KNEA",
