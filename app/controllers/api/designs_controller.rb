@@ -1,7 +1,7 @@
 module Api
 class DesignsController < ApplicationController
   def index
-    @designs =  Apartment.find(27).towers.find_by_name(params[:tower]).flats.at(params[:flat]).first.designs
+    @designs =  Apartment.find(params[:apartment_id]).towers.find_by_name(params[:tower]).flats.at(params[:flat]).first.designs
     render json: @designs
   end
 
