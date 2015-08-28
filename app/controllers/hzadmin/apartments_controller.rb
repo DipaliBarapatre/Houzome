@@ -1,5 +1,4 @@
 ## Admin Dashboard >> Builders
-
 module Hzadmin
 class ApartmentsController < BaseController 
 # before_filter :authenticated?
@@ -23,7 +22,6 @@ layout 'admin'
       render 'new'
     end
   end
-
 
   def edit
     @builder = Builder.find(params[:builder_id])

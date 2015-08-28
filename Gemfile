@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-
 ruby "2.2.2"
 
 # gem "airbrake"
@@ -30,6 +29,7 @@ gem "flutie" # automatic titles
 gem "selectize-rails"
 gem 'aasm'
 gem "figaro"
+gem 'httparty'
 
 # gem "refile", require: "refile/rails"
 gem 'aws-sdk', '~> 2.0'
