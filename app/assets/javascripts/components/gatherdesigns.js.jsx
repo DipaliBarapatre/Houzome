@@ -19,7 +19,7 @@ var MasterDesign = React.createClass({
 	},
 
 	loadDesigns: function(bhk){
-		$.get("/api/apartments/" + window.apartment_id + "/designs?flat="+ bhk, function(data){
+		$.get("/api/apartments/" + window.apartment_id + "/designs?tower=" + this.state.tower_id + "&flat="+ bhk, function(data){
 			this.setState({
 				designs: data.designs,
 				flat_id: bhk
