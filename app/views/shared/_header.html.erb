@@ -1,5 +1,10 @@
-<div id="top-header">
-  <a href="">&nbsp;</a>  
+<div id="top-header" style="text-align:right">
+  <% unless current_user %>
+    <%= link_to "Register", new_user_registration_path %>
+    <%= link_to "Login", new_user_session_path %>
+  <% else %>
+    Welcome <%= current_user.email %> <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+  <% end %>
 </div>
 <header class="navigation" role="banner">
   <div class="navigation-wrapper">

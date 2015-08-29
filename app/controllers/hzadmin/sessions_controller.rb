@@ -1,34 +1,22 @@
-## Admin Sessions Management Controller
-
-module Fpadmin
+module Hzadmin
 class SessionsController < BaseController
-   # skip_before_filter :authenticate!  
-   # before_filter :authenticated, only: [:new]
-   layout 'application'
-   before_filter :check_session, except: :destroy
+  layout 'auth'
+  skip_before_filter :authenticate!
 
-   def new
-     @admin ||= Superadmin.new
-     @admin.build_user
+   def index
+    
    end
 
    def create
-     if warden.authenticate!(:superadmin, scope: :superadmin)
-       redirect_to customers_path
-     else
-       render :text => 'something went wrong'
-     end
-   end
-
-   def destroy
-     warden.logout(:superadmin)
-     flash[:notice] = "Why did you signout ? Come back as soon as you can"
-     redirect_to action: 'new'
-   end
-
-   private
-    def check_session
-      redirect_to customers_path unless current_user.blank?
+    @response = Auth.new(params[:email], params[:password]).authenticate
+    if @response.has_key?('auth_token')
+      session[:admin_token] = @response['auth_token']
+      session[:admin_email] = @response['user_email']
+      redirect_to builders_path
+    else
+      flash[:error] = 'Authentication Failed'
+      render 'index'
     end
+   end
 end
 end

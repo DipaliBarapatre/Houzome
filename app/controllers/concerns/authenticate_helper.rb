@@ -6,21 +6,19 @@ module AuthenticateHelper
 	end
 
 	def current_user
-
+		
 	end
 
 	def authenticate!
-		if token
-			
-		else
-			redirect_to sessions_path
-		end
-		output = HTTParty.post("#{Figaro.env.auth_base_url}/sessions.json", {body: '{ "user": { "email": "admin@example.com", "password": "password" } }',
-		headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json'}
-		})
+		redirect_to sessions_path unless token && checker.has_key?('status')
 	end
 
-	def token
-		session['admin_token']
-	end
+	private
+		def checker
+			Checker.new(session[:admin_email], session[:admin_token]).validate
+		end
+
+		def token
+			session[:admin_token]
+		end
 end

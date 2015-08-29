@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="ROBOTS" content="NOODP" />
+  <meta name="viewport" content="initial-scale=1" />
+  <%#
+    Configure default and controller-, and view-specific titles in
+    config/locales/en.yml. For more see:
+    https://github.com/calebthompson/title#usage
+  %>
+  <title><%= page_title(app_name: 'Houzome') %></title>
+  <script src="//use.typekit.net/gsi0jaz.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+  <%= stylesheet_link_tag :admin, media: "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= body_class %>">
+  <div id="wrapper" class="preload">
+    <%= yield %>
+  </div>
+  <%= javascript_include_tag :admin %>
+  <%= yield :javascript %>
+</body>
+</html>

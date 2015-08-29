@@ -1,0 +1,13 @@
+<div class="box white">
+	<div style="text-align:center">
+		<h3><%= image_tag 'logo_big.jpg', style: 'max-height: 52px;margin-bottom: 12px;padding:0px' %></h3>
+		<h3 style="color:rgb(59, 149, 185)">ADMIN LOGIN</h3>
+		<hr>
+	</div>
+	<%= render 'application/flashes' %>
+	<%= form_tag sessions_path do %>
+		<%= email_field_tag 'email', nil, placeholder: 'Email Address' %>
+		<%= password_field_tag 'password', nil, placeholder: 'Password' %>
+		<%= submit_tag 'Login' %>
+	<% end %>
+</div>

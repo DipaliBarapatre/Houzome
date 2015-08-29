@@ -42,6 +42,9 @@ gem 'react-rails', '~> 1.0'
 gem 'friendly_id'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'kaminari'
+gem 'devise'
+gem 'mandrill_mailer'
+
 
 group :development do
   # gem "spring"

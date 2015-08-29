@@ -5,9 +5,5 @@ class BaseController < ActionController::Base
   protect_from_forgery with: :exception
   include AuthenticateHelper
 
-  def authenticate?
-	 binding.pry
-  end
-
 end
 end

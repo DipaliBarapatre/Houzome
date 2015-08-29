@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   match "/blog" => redirect("http://houzome.wordpress.com"), :as => :blog, via: [:get]
 
   
+  devise_for :users
   resources :builders, as: :frontend_builders
   resources :apartments, only: [:index, :show]
   resources :designs, only: [:show]
