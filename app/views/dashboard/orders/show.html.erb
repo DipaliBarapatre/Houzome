@@ -1,0 +1,38 @@
+<div>
+    <ul>
+    <li><h4>Order Type:  <%= (@order.order_type == "Custom") ? 'Custom Request' : 'Booking' %></h4></li>
+    <hr>
+      <div class="boxer">
+        <div class="half">
+          <li><b> Name:</b> <%= @order.name %></li>
+          <li><b>Mobile:</b> <a href="tel:<%= @order.mobile %>"><%= @order.mobile %></a></li>
+          <li><b> City:</b> <%= @order.city %></li>    
+          <li><b> Email:</b>  <a href="mailto:<%= @order.email %>"><%= @order.email %></a></li>
+        </div>
+        <div class="half_last">
+          <li><b>Apartment:</b> <%= @order.apartment.try(:name).blank? ? @order.apartment_address : @order.apartment.try(:name) %></li>
+          <li><b>Flat:</b> <%= @order.flat %></li>
+          <li>
+          <% unless @order.design.blank? %>
+            <label for="">Master Design:</label> <%= @order.design.name %>
+          <% end %>
+          </li>
+
+          <li><label for="">Special Request:</label> <%= @order.special_request %></li>    
+          <br>
+          <div class="boxer">
+            <div class="half">
+              State: <%= @order.aasm_state %> <br>
+              <% if @order.order_type == 'Custom' %>
+                Price: <%= @order.price %>
+              <% end %>
+            </div>
+            <div class="half_last">
+              EDD : <%= @order.edd %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </ul>
+</div>

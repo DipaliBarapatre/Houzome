@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-
 ruby "2.2.2"
 
 # gem "airbrake"
@@ -30,6 +29,10 @@ gem "flutie" # automatic titles
 gem "selectize-rails"
 gem 'aasm'
 gem "figaro"
+gem 'httparty'
+gem "paranoia", "~> 2.0"
+gem "feed_parser"
+
 
 # gem "refile", require: "refile/rails"
 gem 'aws-sdk', '~> 2.0'
@@ -42,6 +45,12 @@ gem 'react-rails', '~> 1.0'
 gem 'friendly_id'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'kaminari'
+gem 'devise'
+gem 'mandrill_mailer'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+
 
 group :development do
   # gem "spring"

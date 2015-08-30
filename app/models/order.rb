@@ -6,6 +6,8 @@ class Order < ActiveRecord::Base
   extend FriendlyId
   friendly_id :number
 
+  scope :my_orders, ->(email) { where('email=?', email) }
+
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
 	aasm do

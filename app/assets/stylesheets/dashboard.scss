@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+
+@import "normalize-rails";
+@import "bourbon";
+@import "base/grid-settings";
+@import "neat";
+@import "base/base";
+@import "refills/flashes";
+@import "plugins/animate";
+@import "refills/flex-boxes";
+@import "refills/footer";
+@import "refills/comment";
+@import "refills/tables";
+@import "refills/hero";
+@import "refills/cards";
+@import "refills/stats";
+@import "refills/breadcrumbs";
+@import "refills/tabs";
+@import "shared/header";
+@import "shared/tools";
+@import "plugins/zoom";
+@import "font-awesome";
+@import 'selectize';
+@import 'selectize.default';
+
+
+body{
+	background: #f1f5fc;
+}
+
+.dashboard{
+	background: white;
+	min-height: 450px;
+}

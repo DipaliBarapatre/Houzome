@@ -40,6 +40,9 @@
            <!-- link_to , method: :delete do
             <i class='fa fa-trash-o'></i> Remove
            -->
+           <%= link_to inactive_builder_apartment_path(@builder.id, a.id), method: :post do %>
+            <i class='fa fa-trash-o'></i> Hide
+           <% end %>
         </div>
       </div>
     <% end %>
@@ -49,5 +52,32 @@
           <p>No apartments created for this builder. Start one <%= button_to 'New Apartment', new_builder_apartment_path(@builder.id), method: 'get' %></p>
         </div>
     <% end %>
+    <hr>
+    <% unless @deleted.blank? %>
+    <h4>Hidden Apartments</h4>
+    <div class="cards">
+    <% @deleted.each do |a| %>
+      <div class="card">
+        <div class="card-image">
+          <a href="<%= builder_apartment_path(@builder.id, a.id) %>"><%= image_tag attachment_url(a, :image, format: "jpg") %></a>
+        </div>
+        <div class="card-header">
+          <%= link_to builder_apartment_path(@builder.id, a.id) do %>
+            <span><%= a.name.try(:capitalize) %> <i class='fa fa-external-link'></i></span>
+          <% end %>
+        </div>
+        <div class="card-copy">
+          <a href="<%= edit_builder_apartment_path(@builder.id, a.id) %>"><i class='fa fa-pencil-square-o'></i> Edit</a> &nbsp; 
+           <!-- link_to , method: :delete do
+            <i class='fa fa-trash-o'></i> Remove
+           -->
+           <%= link_to active_builder_apartment_path(@builder.id, a.id), method: :post do %>
+            <i class='fa fa-trash-o'></i> Unhide
+           <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
 
 </div>

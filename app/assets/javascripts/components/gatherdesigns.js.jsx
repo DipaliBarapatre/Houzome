@@ -6,7 +6,8 @@ var MasterDesign = React.createClass({
 			flat: '',
 			designs: [],
 			tower_id: '',
-			flat_id: ''
+			flat_id: '',
+			floor_plan: ''
 		}
 	},
 
@@ -22,7 +23,8 @@ var MasterDesign = React.createClass({
 		$.get("/api/apartments/" + window.apartment_id + "/designs?tower=" + this.state.tower_id + "&flat="+ bhk, function(data){
 			this.setState({
 				designs: data.designs,
-				flat_id: bhk
+				flat_id: bhk,
+				floor_plan: data.floor_plan
 			});
 		}.bind(this));
 	},
@@ -84,7 +86,7 @@ var MasterDesign = React.createClass({
 
 		return(
 			<div>
-		        <Search/>
+		        <Search floor_plan={this.state.floor_plan} flat={this.state.flat_id} />
 		        <div className="padder">
 		        	<h4>Design Solutions for your House</h4>
 		        	<div id="apartments">
@@ -125,7 +127,8 @@ var Search = React.createClass({
 			  	</select>
 			  </div>
 			  <div className="search-field last">
-
+			  	<label>Floor Plan ({this.props.flat})</label>
+			  	<image src={this.props.floor_plan} data-action='zoom' />
 			  </div>
 			</div>
 		);

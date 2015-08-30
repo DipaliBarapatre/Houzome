@@ -1,8 +1,10 @@
 module Api
 class DesignsController < ApplicationController
   def index
-    @designs =  Apartment.find(params[:apartment_id]).towers.find_by_name(params[:tower]).flats.at(params[:flat]).first.designs
-    render json: @designs
+  	@flat = Apartment.find(params[:apartment_id]).towers.find_by_name(params[:tower]).flats.at(params[:flat]).first
+    @designs = @flat.designs
+    @fp_url = @flat.fp_url
+    render json: {designs: @designs, floor_plan: @fp_url}
   end
 
   private

@@ -35,21 +35,24 @@
 
           <li><label for="">Special Request:</label> <%= @order.special_request %></li>    
           <br>
+        </div>
+        <div class="boxer">
           <%= simple_form_for @order do |f| %>
-          <div class="boxer">
+          
             <div class="half">
               <%= f.input :aasm_state, label: 'Order State', collection: ['under_progress', 'client_follow_up','customizations_requested','customization_quote ','interior_finalized','payments_done','order_completed','client_not_interested'] %>
+              <%= f.input :designer %>
+              <%= f.input :executioner %>
+            </div>
+            <div class="half_last">
               <% if @order.order_type == 'Custom' %>
                 <%= f.input :price %>
               <% end %>
-            </div>
-            <div class="half_last">
               <%= f.input :edd, label: 'Expected Date of Delivery', html5: true %>
               <%= f.submit :style => 'margin-top:16px' %>
             </div>
 
-          </div>
-        <% end %>
+          <% end %>
         </div>
       </div>
     </ul>
