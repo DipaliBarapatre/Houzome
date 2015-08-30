@@ -14,6 +14,7 @@ layout 'admin'
   def show
     @builder = Builder.find(params[:id])
     @apartments = @builder.apartments
+    @deleted = @builder.apartments.only_deleted
   end
 
   def create

@@ -39,6 +39,29 @@ layout 'admin'
     end
   end
 
+  def destroy
+    
+  end
+
+  def active
+    @apartment = Apartment.unscoped.find(params[:id])
+    if @apartment.restore
+      flash[:notice] = "Apartment activated"
+      redirect_to builder_path(params[:builder_id])
+    else
+      render :text => 'something went wrong'
+    end
+  end
+
+  def inactive
+    @apartment = Apartment.find(params[:id])
+    if @apartment.destroy
+      flash[:notice] = "Apartment hidden"
+      redirect_to builder_path(params[:builder_id])
+    else
+      render :text => 'something went wrong'
+    end
+  end
   private
     def permit_params
       params.require(:apartment).permit(:builder_id, :name, :image, :latitude, :longitude, :city, :area, :address)

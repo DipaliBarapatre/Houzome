@@ -8,7 +8,7 @@ class ApartmentsController < ApplicationController
 
   private
   	def parse(flats)
-  		flats.inject([]){|arr, flat| arr | flat.numbers }.collect{|v| {key: v, val: v}}
+  		flats.inject([]){|arr, flat| arr | flat.numbers }.sort{|a,b| a.to_i <=> b.to_i}.collect{|v| {key: v, val: v}}
   	end
 end
 end

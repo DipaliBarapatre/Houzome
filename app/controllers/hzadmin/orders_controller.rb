@@ -13,7 +13,7 @@ layout 'admin'
 
   def update
     @order = Order.find_by_number(params[:id])
-    if @order.update(:aasm_state => params[:order][:aasm_state], :edd => params[:order][:edd], :price => params[:order][:price].blank? ? '0' : params[:order][:price])
+    if @order.update(:aasm_state => params[:order][:aasm_state], :designer => params[:order][:designer], :executioner => params[:order][:executioner], :edd => params[:order][:edd], :price => params[:order][:price].blank? ? '0' : params[:order][:price])
       flash[:success] = "ORDER UPDATED"
       render 'show'
     end

@@ -1,5 +1,6 @@
 @import 'center';
 @import 'badges';
+@import 'auth_buttons';
 
 body{
 	font-family: "europa", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
@@ -103,4 +104,10 @@ body{
 .white{
 	background: #FFF;
 	color: #0d0d0d;
+}
+
+.title{
+  color: rgba(51, 51, 51, 0.7);
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
 }

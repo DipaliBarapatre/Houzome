@@ -1,5 +1,5 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <%= link_to "Log in", new_user_session_path %><br />
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
@@ -19,7 +19,8 @@
 <% end -%>
 
 <%- if devise_mapping.omniauthable? %>
+	<hr>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+    <%= link_to raw("Sign in with <b>#{provider.to_s.titleize}</b>"), omniauth_authorize_path(resource_name, provider), class: "btn-auth btn-#{provider.to_s}" %><br />
   <% end -%>
 <% end -%>

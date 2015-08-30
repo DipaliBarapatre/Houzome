@@ -1,3 +1,12 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=458847090954177";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div id="banner" class="owl-carousel">
   <div><%= image_tag 'banner_image1.jpg' %></div>
   <div><%= image_tag 'banner_image2.jpg' %></div>
@@ -5,7 +14,7 @@
 </div>
 <div class="padder">
 	<div class="container">
-		<p style="margin-bottom:40px">Explore Possibilities to make your house feel like <b>Home!</b></p>
+		<h1  class="title" style="margin-bottom:40px">Explore Possibilities to make your house feel like<b> <a href="">Home!</a></b>&nbsp; <span class="fb-like" data-href="http://houzome.com" data-layout="button" data-share='false' data-action="like" data-show-faces="true" data-share="true"></span></h1>
 		<div class="flex-boxes">
 		  <a href="javascript:void(0)" class="flex-box">
 		    <%= image_tag 'b1.png' %>
@@ -35,43 +44,38 @@
 	</div>
 </div>
 
-<div class="container padder" >
-	<div class="testimonials">
-		<h2>Testimonials</h2>
-		<div class="comment">
-		  <div class="comment-image">
-		    <%= image_tag 'testimonial1.png', style: 'background:white;padding:0px' %>
-		  </div>
-		  <div class="comment-content">
-		    <h1>Vishal Sinha</h1><!-- <p class='comment-detail'>Bangalore</p> -->
-		    <p>I was struggling to find all the guys who will do my interior... having to talk to so many different vendors for every single thing... Mr. Sanjeet of Houzome has been a great help in putting it all together... I can see my house being done in quick time, based on what I wanted and with assured quality... I am waiting to see it finish and move into it ... thanks Sanjeet!</p>
-		  </div>
+<div style="background:#F6F6F6">
+	<div class="container padder">
+	<h1  class="title"><a href="">We let our customers do the talking...</a></h1>
+	<br>
+		<div class="testimonials">
+			<div class="comment" style="border:0px"> 
+			  <div class="comment-image">
+			    <%= image_tag 'testimonial1.png', style: 'background:white;padding:0px' %>
+			  </div>
+			  <div class="comment-content">
+			    <h1>Vishal Sinha</h1><p class='comment-detail'>Bangalore</p>
+			    <p>I was struggling to find all the guys who will do my interior... having to talk to so many different vendors for every single thing... Mr. Sanjeet of Houzome has been a great help in putting it all together... I can see my house being done in quick time, based on what I wanted and with assured quality... I am waiting to see it finish and move into it ... thanks Sanjeet!</p>
+			  </div>
+			</div>
+			
 		</div>
-		
-		<div class="comment">
-		  <div class="comment-image">
-		    <%= image_tag 'testimonial2.png', style: 'background:white;padding:0px' %>
-		  </div>
-		  <div class="comment-content">
-		    <h1>D.N Sharma</h1><!-- <p class='comment-detail'>Bangalore</p> -->
-		    <p>We were looking for a colorful rajasthani style living room and a modern kitchen. It was so tough to find in Patna. But Vijay Ji from Houzome made it possible for us!</p>
-		  </div>
+		<div class="blogposts">
+			<div class="comment" style="border:0px">
+			  <div class="comment-image">
+			    <%= image_tag 'testimonial2.png', style: 'background:white;padding:0px' %>
+			  </div>
+			  <div class="comment-content">
+			    <h1>D.N Sharma</h1><p class='comment-detail'>Patna</p>
+			    <p>We were looking for a colorful rajasthani style living room and a modern kitchen. It was so tough to find in Patna. But Vijay Ji from Houzome made it possible for us!</p>
+			  </div>
+			</div>
 		</div>
-	</div>
-	<div class="blogposts">
-		<h2>Blog</h2>
-		<div class="comment">
-		  <div class="comment-content">
-		    <h1><a href="<%= blog_path %>">Every project has a story</a></h1>
-			<p>The journey of transforming space between walls of a house to home is arduous as well as emotional for clients. At Houzome, we strive to give our clients the home that goes beyond their aspirations and expectations.</p>
-			<p><%= truncate('Our client had a very clear macro picture of how every corner of their home should look like. They were looking for a trusted partner who can fill in the micro-level details and execute the designs to realize their home. They reached out to us and we were more than happy to help.'){link_to 'More info', blog_path} %></p>
-		  </div>
-		</div>
-
 	</div>
 </div>
-
 <div class="container padder">
+	<h1 class="title"><a href="">Our Partners</a></h1>
+	<br>
 	<div id="partners">
 	  <div class="item"><%= image_tag 'partner_3.jpg' %></div>
 	  <div class="item"><%= image_tag 'partner_5.jpg' %></div>
@@ -80,6 +84,27 @@
 	  <div class="item"><%= image_tag 'partner_7.jpg' %></div>
 	  <div class="item"><%= image_tag 'partner_6.jpg' %></div>
 	  <div class="item"><%= image_tag 'partner_4.jpg' %></div>
+	</div>
+</div>
+
+<div style="background:#f6f6f6">
+	<div class="container padder">
+	<h1 class="title"><a href="">Houzome Blogs</a></h1>
+	<br>
+	<% cache('feed', :expires_in => 3.days ) do %>
+		<div class="clearfix">
+			<% fp = FeedParser.new(url: 'https://houzome.wordpress.com/feed/') %>
+			<% feed = fp.parse.items.first(2).as_json %>
+			<% feed.each do |f| %>	
+			<div class="comment">
+			  <div class="comment-content">
+			    <h1><a href="<%= f[:link] %>" style='color:brown'><%= f[:title] %></a></h1>
+				<p><%= raw f[:description] %></p>
+			  </div>
+			</div>
+			<% end %>
+		</div>
+	<% end %>
 	</div>
 </div>
 

@@ -3,6 +3,10 @@ Rails.application.routes.draw do
     scope :module => 'hzadmin' do
       resources :builders do
         resources :apartments  do
+          member do 
+            post 'active'
+            post 'inactive'
+          end
           resources :flats, :towers
         end
       end
@@ -16,8 +20,19 @@ Rails.application.routes.draw do
 
   match "/blog" => redirect("http://houzome.wordpress.com"), :as => :blog, via: [:get]
 
-  
-  devise_for :users
+  ## Authentication
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    passwords: 'users/passwords',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
+
+  ## Dashboard
+  scope :module => 'dashboard' do
+    resources :orders
+  end
+
   resources :builders, as: :frontend_builders
   resources :apartments, only: [:index, :show]
   resources :designs, only: [:show]
