@@ -35,7 +35,7 @@ Rails.application.routes.draw do
 
   resources :builders, as: :frontend_builders
   resources :apartments, only: [:index, :show]
-  resources :designs, only: [:show]
+  resources :designs, only: [:show], as: :frontend_designs
   resources :orders, only: [:create]
   get 'custom/design' => 'custom#design'
   post 'custom/design' => 'custom#create'

@@ -12,9 +12,15 @@ end
 # using "resources :pages" in config/routes.rb. This will also
 # automatically set <lastmod> to the date and time in page.updated_at:
 #
-sitemap_for Builder.all
-sitemap_for Apartment.all
-sitemap_for Design.all
+sitemap_for Builder.all, name: :builders do |builder|
+	url frontend_builder_url(builder.friendly_id), last_mod: builder.updated_at
+end
+sitemap_for Apartment.all, name: :apartments do |apartment|
+	url apartment_url(apartment.friendly_id), last_mod: apartment.updated_at
+end
+sitemap_for Design.all, name: :master_designs do |design|
+	url frontend_design_url(design.friendly_id), last_mod: design.updated_at
+end
 
 # For products with special sitemap name and priority, and link to comments:
 #

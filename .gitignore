@@ -17,3 +17,5 @@
 # Ignore application configuration
 /config/application.yml
 prod-app.pem
+
+/public/sitemaps/*
