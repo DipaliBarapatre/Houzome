@@ -14,9 +14,6 @@
 	    <%= f.input :mobile, label: 'Phone No.' %>
 	    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
 	    <%= f.input :password_confirmation, required: true %>
-	    <%= f.input :city %>
-	    <label for="">Portfolio Image</label>
-	    <%= f.attachment_field :image %>
 	  </div>
 
 	  <div class="form-actions">

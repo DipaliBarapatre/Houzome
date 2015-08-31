@@ -67,6 +67,17 @@
                   <span class="menu-hover"></span>
                 </a>
               </li>
+              <li>
+                <%= link_to session_path('1'), method: :delete do %>
+                  <span class="menu-icon">
+                    <i class="fa fa-sign-out"></i> 
+                  </span>
+                  <span class="text">
+                    Logout
+                  </span>
+                  <span class="menu-hover"></span>
+                <% end %>
+              </li>
             </ul>
           </div>
         </div><!-- /sidebar-inner -->

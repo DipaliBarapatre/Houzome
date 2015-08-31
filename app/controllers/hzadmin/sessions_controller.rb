@@ -18,5 +18,15 @@ class SessionsController < BaseController
       render 'index'
     end
    end
+
+   def destroy
+    val = Checker.new(session[:admin_email], session[:admin_token]).signout
+    if val.nil?
+      flash[:notice] = 'Logged out'
+      redirect_to sessions_path
+    else
+      render text: 'Something went wrong'
+    end
+   end
 end
 end
