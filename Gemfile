@@ -1,4 +1,6 @@
 source "https://rubygems.org"
+gem 'whenever', :require => false
+gem 'meta_request'
 ruby "2.2.2"
 
 # gem "airbrake"
@@ -49,7 +51,9 @@ gem 'devise'
 gem 'mandrill_mailer'
 gem 'omniauth'
 gem 'omniauth-facebook'
-
+gem 'metamagic'
+gem "dynamic_sitemaps"
+gem 'whenever', :require => false
 
 
 group :development do

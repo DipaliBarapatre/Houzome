@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830104607) do
+ActiveRecord::Schema.define(version: 20150831102023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,9 +28,11 @@ ActiveRecord::Schema.define(version: 20150830104607) do
     t.text     "address"
     t.string   "area"
     t.datetime "deleted_at"
+    t.string   "slug"
   end
 
   add_index "apartments", ["deleted_at"], name: "index_apartments_on_deleted_at", using: :btree
+  add_index "apartments", ["slug"], name: "index_apartments_on_slug", unique: true, using: :btree
 
   create_table "builders", force: :cascade do |t|
     t.string   "name"
@@ -40,7 +42,10 @@ ActiveRecord::Schema.define(version: 20150830104607) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "image_id"
+    t.string   "slug"
   end
+
+  add_index "builders", ["slug"], name: "index_builders_on_slug", unique: true, using: :btree
 
   create_table "designs", force: :cascade do |t|
     t.string   "name"

@@ -1,7 +1,14 @@
+<%
+meta title: "Builders | Houzome",
+     description: "Design solution for your home",
+     keywords: %w(interior design home decor apartment)
+%>
+
+
 <div class="container padder">
 	<div class="breadcrumb">
-	  <%= link_to 'Home', root_path %>
-	  <%= link_to 'Builders', '' %>
+	  <%= link_to 'Home', root_path, itemprop: 'url' %>
+	  <%= link_to 'Builders', builders_path, itemprop: 'url' %>
 	</div>
 
 
@@ -30,7 +37,7 @@
 				  <div class="hover-tile-container">
 				    <div class="hover-tile hover-tile-visible"></div>
 				    <div class="hover-tile hover-tile-hidden">
-				      <a href="<%= frontend_builder_path(b.id) %>" class='white'>
+				      <a href="<%= frontend_builder_path(b.friendly_id) %>" class='white'>
 				      	<h4><%= b.name.try(:upcase) %></h4>
 				      	<p style="min-height:97px"><%= b.description %></p>
 				      </a>
@@ -49,4 +56,17 @@
 		 $('select').selectize();
 		});
 	</script>
+	
+	<script type="application/ld+json">
+	 { "@context" : "http://schema.org",
+	   "@type" : "Organization",
+	   "name" : "Houzome",
+	   "logo": "",
+	   "url" : "<%= root_url %>",
+	   "email": "info@houzome.com",
+	   "founder": "Vishwas Sinha",
+	   "contactPoint" : [{ "@type" : "ContactPoint","telephone" : "(+91) 777-402-8154", "contactType" : "sales"}],
+	   "sameAs" : [ "http://www.facebook.com/houzome"]
+	 }
+	 </script>
 <% end %>

@@ -1,8 +1,14 @@
+<%
+meta title: "#{@apartment.name} | Houzome",
+     description: "#{@apartment.address} #{@apartment.city}",
+     keywords: %w(interior design home decor apartment)
+%>
+
 <div class="container padder">
 	<div>
 		<div class="breadcrumb">
-		  <%= link_to 'Home', root_path %>
-		  <%= link_to 'Apartments', apartments_path %>
+		  <%= link_to 'Home', root_path, itemprop: 'url' %>
+		  <%= link_to 'Apartments', apartments_path, itemprop: 'url' %>
 		  <%= link_to @apartment.name, '' %>
 		</div>
 	</div>
@@ -35,4 +41,18 @@
 	<script>
 		window.apartment_id = <%= params[:id] %>;
 	</script>
+	<script type="application/ld+json">
+	 { "@context" : "http://schema.org",
+	   "@type" : "ApartmentComplex",
+	   "name" : "<%= @apartment.name %>",
+	   "image": "http://houzome.com<%= attachment_url(@apartment, :image) %>",
+	   "url" : "<%= request.original_url %>",
+	   "address": "<%= @apartment.address %>, <%= @apartment.city %>",
+	   "geo": {
+	   	"@type": "GeoCoordinates",
+	   	"latitude": "<%= @apartment.latitude %>",
+	   	"longitude": "<%= @apartment.longitude %>"
+	   }
+	 }
+	 </script>
 <% end %>

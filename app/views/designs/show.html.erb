@@ -15,8 +15,10 @@
 		<div class="content">
 			<h4><%= @design.name %></h4>
 			<p>Price Rs.<span class='money'><%= @design.selling_price %></span>/-</p>
-			<p><b>Apartment:</b> <%= @apartment.name %></p>
-			<p><b>Tower:</b> <%= params[:tower] %>&nbsp;&nbsp;&nbsp;<b>Flat:</b> <%= params[:flat] %></p>
+			<% unless @apartment.blank? %>
+				<p><b>Apartment:</b> <%= @apartment.name %></p>
+				<p><b>Tower:</b> <%= params[:tower] %>&nbsp;&nbsp;&nbsp;<b>Flat:</b> <%= params[:flat] %></p>
+			<% end %>
 			<h5>Portfolio Images</h5>
 			<div id='portfolio-images'>
 				<% @design.images.each do |img| %>
@@ -27,9 +29,13 @@
 			
 			<div class="modal">
 			  <label for="booknow">
-			    <div class="modal-trigger btn"  id="booker">
-			    	Book Now
-			    </div>
+			    <% if @order %>
+				    <div class="modal-trigger btn"  id="booker">
+				    	Book Now
+				    </div>
+			    <% else %>
+					<%= button_to 'Book Now', custom_design_path, method: :get %>
+			    <% end %>
 			  </label>
 			  <input class="modal-state" id="booknow" type="checkbox" />
 			  <div class="modal-fade-screen">
@@ -38,21 +44,23 @@
 			      <h1>Leave us your details</h1>
 			      <p class="modal-intro"></p>
 			      <p class="modal-content">
-			      	<%= simple_form_for @order, remote: true do |o| %>
-			      		<%= o.input :apartment_id, as: :hidden, input_html: { value: params[:apartment]} %>
-			      		<%= o.input :design_id, as: :hidden, input_html: { value: @design.id} %>
-			      		<%= o.input :flat, as: :hidden, input_html: { value: params[:flat].split('-')[1]} %>
-			      		<%= o.input :order_type, as: :hidden, input_html: { value: 'Normal'} %>
-			      		<% if current_user %>
-				      		<%= o.input :name, required: true, input_html: {value: current_user.name} %>
-				      		<%= o.input :email, required: true, input_html: {value: current_user.email} %>
-				      		<%= o.input :mobile, input_html: {value: current_user.mobile} %>
-			      		<% else %>
-			      			<%= o.input :name, required: true %>
-			      			<%= o.input :email, required: true %>
-			      			<%= o.input :mobile %>
-			      		<% end %>
-			      		<%= o.submit 'Submit Request'  %>
+			      	<% if @order %>
+	      		      	<%= simple_form_for @order, remote: true do |o| %>
+	      		      		<%= o.input :apartment_id, as: :hidden, input_html: { value: params[:apartment]} %>
+	      		      		<%= o.input :design_id, as: :hidden, input_html: { value: @design.id} %>
+	      		      		<%= o.input :flat, as: :hidden, input_html: { value: params[:flat].split('-')[1]} %>
+	      		      		<%= o.input :order_type, as: :hidden, input_html: { value: 'Normal'} %>
+	      		      		<% if current_user %>
+	      			      		<%= o.input :name, required: true, input_html: {value: current_user.name} %>
+	      			      		<%= o.input :email, required: true, input_html: {value: current_user.email} %>
+	      			      		<%= o.input :mobile, input_html: {value: current_user.mobile} %>
+	      		      		<% else %>
+	      		      			<%= o.input :name, required: true %>
+	      		      			<%= o.input :email, required: true %>
+	      		      			<%= o.input :mobile %>
+	      		      		<% end %>
+	      		      		<%= o.submit 'Submit Request'  %>
+	      		      	<% end %>
 			      	<% end %>
 			      </p>
 			    </div>
@@ -70,12 +78,12 @@
 			<p><%= @design.specifications %></p>
 		</div>
 		<div class="content">
+			<% unless @flat.blank? %>
 			<h4>Floor Plan</h4>
 			<div class="image">
-			<% unless @flat.blank? %>
 				<%= image_tag @flat.first.fp_url, data: {action: 'zoom'} %>
-			<% end %>
 			</div>
+			<% end %>
 		</div>
 	</div>
 </div>
@@ -101,5 +109,19 @@
 		    e.stopPropagation();
 		  });
 		});
+	</script>
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "Product",
+	  "description": "<%= @design.description %>",
+	  "name": "<%= @design.name %>",
+	  "offers": {
+	    "@type": "Offer",
+	    "availability": "http://schema.org/InStock",
+	    "price": "<%= @design.selling_price %>",
+	    "priceCurrency": "INR"
+	  }
+	}
 	</script>
 <% end %>

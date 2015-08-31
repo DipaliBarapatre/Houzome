@@ -6,6 +6,6 @@ class BuildersController < ApplicationController
   end
 
   def show
-  	@builder = Builder.includes(:apartments).find(params[:id])
+  	@builder = Builder.includes(:apartments).friendly.find(params[:id])
   end
 end

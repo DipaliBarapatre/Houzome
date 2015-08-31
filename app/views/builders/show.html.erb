@@ -1,7 +1,14 @@
+<%
+meta title: "#{@builder.name} | Houzome",
+     description: "#{@builder.description}",
+     keywords: %w(interior design home decor apartment)
+%>
+
+
 <div class="container padder">
 	<div class="breadcrumb">
-	  <%= link_to 'Home', root_path %>
-	  <%= link_to 'Builders', builders_path %>
+	  <%= link_to 'Home', root_path, itemprop: 'url' %>
+	  <%= link_to 'Builders', builders_path, itemprop: 'url' %>
 	  <%= link_to @builder.name, '' %>
 	</div>
 
@@ -25,7 +32,7 @@
 				  <div class="hover-tile-container">
 				    <div class="hover-tile hover-tile-visible" style="background: url('<%= a.image_url %>');background-size:cover"></div>
 				    <div class="hover-tile hover-tile-hidden">
-				      <a href="<%= apartment_path(a.id) %>" class='white'>
+				      <a href="<%= apartment_path(a.friendly_id) %>" class='white'>
 				      	<h4><%= a.name.try(:upcase) %></h4>
 				      	<p style="min-height:97px"></p>
 				      </a>
@@ -44,4 +51,13 @@
 		 $('select').selectize();
 		});
 	</script>
+	<script type="application/ld+json">
+	 { "@context" : "http://schema.org",
+	   "@type" : "HomeAndConstructionBusiness",
+	   "legalName" : "<%= @builder.name %>",
+	   "logo": "http://houzome.com<%= @builder.image_url %>",
+	   "contact": "<%= @builder.contact %>",
+	   "description": "<%= @builder.description %>"
+	 }
+	 </script>
 <% end %>

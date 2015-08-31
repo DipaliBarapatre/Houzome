@@ -6,6 +6,8 @@ class Order < ActiveRecord::Base
   extend FriendlyId
   friendly_id :number
 
+  after_create :notify
+
   scope :my_orders, ->(email) { where('email=?', email) }
 
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
@@ -25,4 +27,8 @@ class Order < ActiveRecord::Base
 	  options[:prefix] ||= 'H'
 	  super(options)
 	end
+
+  def notify
+    OrderMailer.notify(self).deliver
+  end
 end

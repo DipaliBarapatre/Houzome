@@ -46,5 +46,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "sitemap.xml" => "homepage#sitemap", format: :xml, as: :sitemap
+  get "robots.txt" => "homepage#robots", format: :text, as: :robots
+
   root 'homepage#index'
 end
