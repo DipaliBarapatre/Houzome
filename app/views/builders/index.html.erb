@@ -7,12 +7,12 @@
 
 	<%= search_form_for @q, builder: SimpleForm::FormBuilder, url: builders_path, html: {method: :get} do |f| %>
 	<div class="search-tools">
-	  <%= f.input :apartments_city_eq, label: 'City', collection: Apartment.all.pluck(:city).uniq.compact, wrapper_html: {class: 'search-field' }%>
+	  <%= f.input :apartments_city_eq, label: 'City', collection: Apartment.all.pluck(:city).uniq.compact.sort, wrapper_html: {class: 'search-field' }%>
 	  <div class="search-field" style="width:7%">
 	  	<label for="">&nbsp;</label>
 	  	<p style="text-align:center"><%= image_tag 'or.svg', style: 'width:32px' %></p>
 	  </div>
-	  <%= f.input :name_eq, label: 'Builder', collection: Builder.all.pluck(:name), wrapper_html: {class: 'search-field' } %>
+	  <%= f.input :name_eq, label: 'Builder', collection: Builder.all.pluck(:name).sort, wrapper_html: {class: 'search-field' } %>
 	  <%= f.submit 'Search', style: "margin-top: 26px" %>
 	  
 	</div>

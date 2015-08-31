@@ -43,9 +43,15 @@
 			      		<%= o.input :design_id, as: :hidden, input_html: { value: @design.id} %>
 			      		<%= o.input :flat, as: :hidden, input_html: { value: params[:flat].split('-')[1]} %>
 			      		<%= o.input :order_type, as: :hidden, input_html: { value: 'Normal'} %>
-			      		<%= o.input :name, required: true %>
-			      		<%= o.input :email, required: true %>
-			      		<%= o.input :mobile %>
+			      		<% if current_user %>
+				      		<%= o.input :name, required: true, input_html: {value: current_user.name} %>
+				      		<%= o.input :email, required: true, input_html: {value: current_user.email} %>
+				      		<%= o.input :mobile, input_html: {value: current_user.mobile} %>
+			      		<% else %>
+			      			<%= o.input :name, required: true %>
+			      			<%= o.input :email, required: true %>
+			      			<%= o.input :mobile %>
+			      		<% end %>
 			      		<%= o.submit 'Submit Request'  %>
 			      	<% end %>
 			      </p>

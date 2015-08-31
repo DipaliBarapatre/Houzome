@@ -22,9 +22,9 @@ var MasterDesign = React.createClass({
 	loadDesigns: function(bhk){
 		$.get("/api/apartments/" + window.apartment_id + "/designs?tower=" + this.state.tower_id + "&flat="+ bhk, function(data){
 			this.setState({
-				designs: data.designs,
+				designs: data.designs[0],
 				flat_id: bhk,
-				floor_plan: data.floor_plan
+				floor_plan: data.designs[1].image_url
 			});
 		}.bind(this));
 	},
