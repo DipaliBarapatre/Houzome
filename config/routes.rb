@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   ## Dashboard
   scope :module => 'dashboard' do
-    resources :orders
+    resources :orders, only: [:index, :show]
   end
 
   resources :builders, as: :frontend_builders

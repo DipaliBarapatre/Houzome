@@ -32,9 +32,8 @@
       <td><a href="tel:<%= b.contact %>"><%= b.contact %></a></td>
       <td>
         <a href="<%= edit_builder_path(b.id) %>"><i class='fa fa-pencil-square-o'></i> Edit</a> &nbsp; 
-        <%= link_to builder_path(b.id), method: :delete do %>
-          <i class='fa fa-trash-o'></i> Remove
-        <% end %>
+        <!-- link_to builder_path(b.id), method: :delete do 
+          <i class='fa fa-trash-o'></i> Remove -->
       </td>
     </tr>
     <% end %>

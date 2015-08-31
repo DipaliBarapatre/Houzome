@@ -22,8 +22,16 @@
 			<%= o.input :name, required: true, input_html: {value: current_user.blank? ? '' : current_user.name} %>
 			<%= o.input :email, required: true, input_html: {value: current_user.blank? ? '' : current_user.email} %>
 			<%= o.input :mobile %>
-			<%= o.input :flat, input_html: {value: params[:flat], placeholder: 'Tower & Flat'} %>
+			<% if params[:tower] %>
+			<%= o.input :flat, input_html: {value: "#{params[:tower]}, #{params[:flat]}" , placeholder: 'Tower & Flat'} %>
+			<% else %>
+				<%= o.input :flat, input_html: {placeholder: 'Tower & Flat'} %>
+			<% end %>
+			<% unless @apartment.blank? %>
+			<%= o.input :apartment_address, input_html: {value: "#{@apartment.name}, #{@apartment.builder.name}, #{@apartment.address}", placeholder: 'Apartment Name & Address'} %>
+			<% else %>
 			<%= o.input :apartment_address, input_html: {placeholder: 'Apartment Name & Address'} %>
+			<% end %>
 			<%= o.input :city, input_html: {value: current_user.blank? ? '' : current_user.city} %>
 			<%= o.input :special_request %>
 

@@ -86,7 +86,7 @@ var MasterDesign = React.createClass({
 
 		return(
 			<div>
-		        <Search floor_plan={this.state.floor_plan} flat={this.state.flat_id} />
+		        <Search floor_plan={this.state.floor_plan} flat={this.state.flat_id} tower={this.state.tower_id}/>
 		        <div className="padder">
 		        	<h4>Design Solutions for your House</h4>
 		        	<div id="apartments">
@@ -127,7 +127,7 @@ var Search = React.createClass({
 			  	</select>
 			  </div>
 			  <div className="search-field last">
-			  	<label>Floor Plan ({this.props.flat})</label>
+			  	<label>Floor Plan ({this.props.tower}, {this.props.flat})</label>
 			  	<image src={this.props.floor_plan} data-action='zoom' />
 			  </div>
 			</div>
@@ -137,13 +137,14 @@ var Search = React.createClass({
 
 var Design = React.createClass({
 	handler: function(a){
-		window.location.replace('/designs/' + a.target.dataset.url + '?apartment=' + window.apartment_id + '&tower=' + this.props.tower + '&flat=' + this.props.flat)
+		window.open('/designs/' + a.target.dataset.url + '?apartment=' + window.apartment_id + '&tower=' + this.props.tower + '&flat=' + this.props.flat, '_blank')
 	},
 
 	render: function(){
 		var box_style = {
 			backgroundImage: 'url(' + this.props.design.image_url + ')',
 		};
+		var paraStyle = {textAlign: 'center', color: 'rgba(51,51,51,0.7)'};
 
 		return(
 			<div className="each" onClick={this.handler} data-url={this.props.design.slug}>
@@ -155,6 +156,7 @@ var Design = React.createClass({
 				      <p></p>
 				    </div>
 				  </div>
+				  <p style={paraStyle} ><b>{this.props.design.name}</b>,INR {this.props.design.selling_price}</p>
 				</div>
 			</div>
 		);

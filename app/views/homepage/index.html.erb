@@ -45,7 +45,7 @@
 </div>
 
 <div style="background:#F6F6F6">
-	<div class="container padder">
+	<div class="container padder light-gray">
 	<h1  class="title"><a href="">We let our customers do the talking...</a></h1>
 	<br>
 		<div class="testimonials">
@@ -55,7 +55,7 @@
 			  </div>
 			  <div class="comment-content">
 			    <h1>Vishal Sinha</h1><p class='comment-detail'>Bangalore</p>
-			    <p>I was struggling to find all the guys who will do my interior... having to talk to so many different vendors for every single thing... Mr. Sanjeet of Houzome has been a great help in putting it all together... I can see my house being done in quick time, based on what I wanted and with assured quality... I am waiting to see it finish and move into it ... thanks Sanjeet!</p>
+			    <p><i>I was struggling to find all the guys who will do my interior... having to talk to so many different vendors for every single thing... Mr. Sanjeet of Houzome has been a great help in putting it all together... I can see my house being done in quick time, based on what I wanted and with assured quality... I am waiting to see it finish and move into it ... thanks Sanjeet!</i></p>
 			  </div>
 			</div>
 			
@@ -67,7 +67,7 @@
 			  </div>
 			  <div class="comment-content">
 			    <h1>D.N Sharma</h1><p class='comment-detail'>Patna</p>
-			    <p>We were looking for a colorful rajasthani style living room and a modern kitchen. It was so tough to find in Patna. But Vijay Ji from Houzome made it possible for us!</p>
+			    <p><i>We were looking for a colorful rajasthani style living room and a modern kitchen. It was so tough to find in Patna. But Vijay Ji from Houzome made it possible for us!</i></p>
 			  </div>
 			</div>
 		</div>
@@ -88,7 +88,7 @@
 </div>
 
 <div style="background:#f6f6f6">
-	<div class="container padder">
+	<div class="container padder light-gray">
 	<h1 class="title"><a href="">Houzome Blogs</a></h1>
 	<br>
 	<% cache('feed', :expires_in => 3.days ) do %>
@@ -98,7 +98,7 @@
 			<% feed.each do |f| %>	
 			<div class="comment">
 			  <div class="comment-content">
-			    <h1><a href="<%= f[:link] %>" style='color:brown'><%= f[:title] %></a></h1>
+			    <h1><a href="<%= f[:link] %>" style='text-decoration:underline;color:rgba(51, 51, 51, 0.6);font-size:1.2em'><%= f[:title] %></a></h1>
 				<p><%= raw f[:description] %></p>
 			  </div>
 			</div>
