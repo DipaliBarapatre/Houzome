@@ -5,6 +5,7 @@
 	<%= f.input :description %>
 	<label for="">Builder Image</label>
 	<%= f.attachment_field :image %>
+	<%= attachment_image_tag(@builder, :image, :fill, 300, 150) %>
 	<br>
 	<%= f.submit %>
 <% end %>
