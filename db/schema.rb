@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901084311) do
+ActiveRecord::Schema.define(version: 20150901113132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150901084311) do
     t.text     "specifications"
     t.string   "designer"
     t.string   "executioner"
+    t.string   "sku"
   end
 
   add_index "designs", ["floor_plan_id"], name: "index_designs_on_floor_plan_id", using: :gin

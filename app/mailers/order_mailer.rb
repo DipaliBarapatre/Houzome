@@ -6,7 +6,7 @@ class OrderMailer < MandrillMailer::TemplateMailer
     mandrill_mail(
 
       template: 'order',
-      subject: "Order Checkup (#{order.number})",
+      subject: "Order Receipt (#{order.number})",
       to: order.email,
         # to: invitation.email,
         # to: { email: invitation.email, name: 'Honored Guest' },

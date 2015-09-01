@@ -104,8 +104,8 @@ meta title: "Modern Interior Design Solutions, Unique modern Design | Houzome",
 			<% feed = fp.parse.items.first(2).as_json %>
 			<% feed.each do |f| %>	
 			<div class="comment">
-			  <div class="comment-content">
-			    <h1><a href="<%= f[:link] %>" style='text-decoration:underline;color:rgba(51, 51, 51, 0.6);font-size:1.2em'><%= f[:title] %></a></h1>
+			  <div class="comment-content wp_content">
+			    <h1><a href="<%= f[:link] %>" style='color:rgba(51, 51, 51, 0.6);font-size:1.2em'><%= f[:title] %></a></h1>
 				<p><%= raw f[:description] %></p>
 			  </div>
 			</div>

@@ -16,11 +16,11 @@
 <div class="padding-md">
   <table>
   	<tr>
-      <th>Order</th>
-  		<th>Customer</th>
-      <th>Price</th>
-      <th>EDD</th>
-      <th>Status</th>
+      <th><%= sort_link(@q, :number) %></th>
+  		<th><%= sort_link(@q, :name) %></th>
+      <th><%= sort_link(@q, :price) %></th>
+      <th><%= sort_link(@q, :edd) %></th>
+      <th><%= sort_link(@q, :aasm_state) %></th>
       <th></th>
   	</tr>
     <% @orders.each do |o| %>

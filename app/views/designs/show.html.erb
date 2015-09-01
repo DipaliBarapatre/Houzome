@@ -48,7 +48,7 @@
 	      		      	<%= simple_form_for @order, remote: true do |o| %>
 	      		      		<%= o.input :apartment_id, as: :hidden, input_html: { value: params[:apartment]} %>
 	      		      		<%= o.input :design_id, as: :hidden, input_html: { value: @design.id} %>
-	      		      		<%= o.input :flat, as: :hidden, input_html: { value: params[:flat].split('-')[1]} %>
+	      		      		<%= o.input :flat, as: :hidden, input_html: { value: params[:flat].split('-')[1].blank? ? "#{params[:tower]}, #{params[:flat]}" : params[:flat].split('-')[1] } %>
 	      		      		<%= o.input :order_type, as: :hidden, input_html: { value: 'Normal'} %>
 	      		      		<% if current_user %>
 	      			      		<%= o.input :name, required: true, input_html: {value: current_user.name} %>

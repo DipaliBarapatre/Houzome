@@ -1,5 +1,6 @@
 <%= simple_form_for @design, url: url do |f| %>
-	<%= f.input :name %>
+	<%= f.input :sku, label: "Name" %>
+	<%= f.input :name, label: "Display Name" %>
 	<%= f.input :selling_price %>
 	<%= f.input :description %>
 	<%= f.input :specifications %>

@@ -4,7 +4,8 @@ class OrdersController < BaseController
 layout 'admin'
 
   def index
-    @orders = Order.all
+    @q = Order.ransack(params[:q])
+    @orders =  @q.result
   end
 
   def show
