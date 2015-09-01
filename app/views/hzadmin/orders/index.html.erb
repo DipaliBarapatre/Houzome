@@ -13,11 +13,11 @@
 
 <%= render "application/flashes" -%>
 
-<div class="padding-md">
+<div class="padding-md clearfix">
   <div style="margin-top:20px">
     <div style='float:right'><%= paginate @orders %></div>
   </div>
-  <table>
+  <table class='clearfix'>
   	<tr>
       <th><%= sort_link(@q, :number, "Order ID", default_order: :desc) %></th>
   		<th><%= sort_link(@q, :name) %></th>
@@ -37,7 +37,7 @@
     </tr>
     <% end %>
   </table>
-  <div style="margin-top:20px">
+  <div style="margin-top:20px" class="clearfix">
     <div style='float:right'><%= paginate @orders %></div>
   </div>
 </div>
