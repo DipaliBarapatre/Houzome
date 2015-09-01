@@ -32,7 +32,7 @@ layout 'admin'
   end
 
   def update
-    @builder = Builder.find(params[:id])
+    @builder = Builder.friendly.find(params[:id])
     if @builder.update(permit_params)
       flash[:success] = 'Builder Updated'
       redirect_to builders_path

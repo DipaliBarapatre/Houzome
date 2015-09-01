@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   
   def create
+  	@apartment = Apartment.friendly.find(params[:order][:apartment_id])
+  	params[:order][:apartment_id] = @apartment.id
 	@order = Order.new(permit_params)
 	if @order.save
 	    respond_to do |format|

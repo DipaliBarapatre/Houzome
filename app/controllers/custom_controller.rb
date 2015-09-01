@@ -3,7 +3,7 @@ layout 'apartments'
 
   def design
 	 @order = Order.new	
-   if params[:apartment] && @apartment = Apartment.find(params[:apartment])
+   if params[:apartment] && @apartment = Apartment.friendly.find(params[:apartment])
     @order.apartment_address = @apartment.address
     @order.city = @apartment.city
    end
