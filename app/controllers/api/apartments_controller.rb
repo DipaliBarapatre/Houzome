@@ -1,7 +1,7 @@
 module Api
 class ApartmentsController < ApplicationController
   def show
-  	@apartment = Apartment.find(params[:id])
+  	@apartment = Apartment.friendly.find(params[:id])
   	@data = @apartment.towers.includes(:flats).collect{|t| {tower: t.name, flats: parse(t.flats) }}
   	render json: @data
   end
