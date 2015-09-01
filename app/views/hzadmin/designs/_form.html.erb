@@ -3,6 +3,8 @@
 	<%= f.input :selling_price %>
 	<%= f.input :description %>
 	<%= f.input :specifications %>
+	<%= f.input :designer %>
+	<%= f.input :executioner %>
 	<label for="">Master Image</label>
 	<%= f.attachment_field :master_image %>
 	<%= attachment_image_tag(@design, :master_image, :fill, 300, 150) %>
