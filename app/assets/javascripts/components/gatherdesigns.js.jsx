@@ -115,6 +115,10 @@ var Search = React.createClass({
 			display: 'none'
 		};
 
+		var floor_style = {
+			display: (this.props.flat == "") ? "none" : 'block'
+		};
+
 		return(
 			<div className="search-tools">
 			  <div className="search-field">
@@ -126,7 +130,7 @@ var Search = React.createClass({
 			  	<select name="flat" id="flat" style={tower_style}> 
 			  	</select>
 			  </div>
-			  <div className="search-field last">
+			  <div className="search-field last" style={floor_style}>
 			  	<label>Floor Plan ({this.props.tower}, {this.props.flat})</label>
 			  	<image src={this.props.floor_plan} data-action='zoom' />
 			  </div>
