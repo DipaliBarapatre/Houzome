@@ -5,7 +5,7 @@ layout 'admin'
 
   def index
     @q = Order.ransack(params[:q])
-    @orders =  @q.result
+    @orders =  @q.result.page(params[:page])
   end
 
   def show

@@ -14,13 +14,16 @@
 <%= render "application/flashes" -%>
 
 <div class="padding-md">
+  <div style="margin-top:20px">
+    <div style='float:right'><%= paginate @orders %></div>
+  </div>
   <table>
   	<tr>
-      <th><%= sort_link(@q, :number) %></th>
+      <th><%= sort_link(@q, :number, "Order ID", default_order: :desc) %></th>
   		<th><%= sort_link(@q, :name) %></th>
       <th><%= sort_link(@q, :price) %></th>
-      <th><%= sort_link(@q, :edd) %></th>
-      <th><%= sort_link(@q, :aasm_state) %></th>
+      <th><%= sort_link(@q, :edd, "EDD") %></th>
+      <th><%= sort_link(@q, :aasm_state, 'State') %></th>
       <th></th>
   	</tr>
     <% @orders.each do |o| %>
@@ -34,4 +37,7 @@
     </tr>
     <% end %>
   </table>
+  <div style="margin-top:20px">
+    <div style='float:right'><%= paginate @orders %></div>
+  </div>
 </div>
