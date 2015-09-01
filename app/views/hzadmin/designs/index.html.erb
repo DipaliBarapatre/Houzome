@@ -19,7 +19,7 @@
         <%= image_tag attachment_url(d, :master_image, :fill, 300, 300, format: "jpg") %>
         </div>
         <div class="card-header">
-          <%= d.name %>
+          <%= d.sku %> (<%= d.name %>)
         </div>
         <div class="card-copy">
           <p><a href="<%= edit_design_path(d.id) %>">Edit</a></p>

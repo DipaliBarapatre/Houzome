@@ -6,7 +6,7 @@
 		<%= f.input :numbers, label: 'Flat numbers', input_html: {id: 'numbers', value: @flat.numbers.join(','), placeholder: 'Add flat numbers separated by comma or tab'} %>
 		<%= f.input :floor_plan_id, collection: Flat::FLOORPLANS %>
 		<%= f.association :towers, collection: @apartment.towers %>
-		<%= f.association :designs, label: 'Master Designs', collection: Design.all %>
+		<%= f.association :designs, label: 'Master Designs', collection: Design.all, label_method: :sku, value_method: :id %>
 		<br>
 		<label for="">Floor Plan Image</label>
 		<%= f.attachment_field :fp %>
