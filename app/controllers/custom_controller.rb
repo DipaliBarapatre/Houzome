@@ -13,8 +13,8 @@ layout 'apartments'
   	@order = Order.new(permit_params)
   	if @order.save
   	    respond_to do |format|
-  			format.html
-  		end
+  			 format.html
+  		  end
   	else
   		render 'design'
   	end

@@ -1,4 +1,4 @@
- class FlatSerializer < ActiveModel::Serializer
+class FlatSerializer < ActiveModel::Serializer
   attributes :floor_plan_id, :numbers, :image_url
 
   def image_url

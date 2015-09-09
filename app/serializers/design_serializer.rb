@@ -1,4 +1,4 @@
- class DesignSerializer < ActiveModel::Serializer
+class DesignSerializer < ActiveModel::Serializer
   attributes :name, :image_url, :slug, :description, :specifications, :selling_price
 
   def image_url
