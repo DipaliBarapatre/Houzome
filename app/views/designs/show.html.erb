@@ -3,6 +3,9 @@
 		<div class="breadcrumb">
 		  <a href="/">Home</a>
 		  <a href="/apartments">Apartments</a>
+		  <% if @apartment %>
+		  <%= link_to @apartment.name, apartment_path(@apartment.friendly_id) %>
+		  <% end %>
 		  <a href="javascript:void(0)"><%= @design.name.try(:capitalize) %></a>
 		</div>
 	</div>

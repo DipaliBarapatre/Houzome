@@ -141,7 +141,7 @@ var Search = React.createClass({
 
 var Design = React.createClass({
 	handler: function(a){
-		window.open('/designs/' + a.target.dataset.url + '?apartment=' + window.apartment_id + '&tower=' + this.props.tower + '&flat=' + this.props.flat, '_blank')
+		window.location.replace('/designs/' + a.target.dataset.url + '?apartment=' + window.apartment_id + '&tower=' + this.props.tower + '&flat=' + this.props.flat, '_blank')
 	},
 
 	render: function(){
