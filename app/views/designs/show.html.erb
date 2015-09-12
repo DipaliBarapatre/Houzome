@@ -48,7 +48,7 @@
 			      <p class="modal-intro"></p>
 			      <p class="modal-content">
 			      	<% if @order %>
-	      		      	<%= simple_form_for @order, remote: true do |o| %>
+	      		      	<%= simple_form_for @order do |o| %>
 	      		      		<%= o.input :apartment_id, as: :hidden, input_html: { value: params[:apartment]} %>
 	      		      		<%= o.input :design_id, as: :hidden, input_html: { value: @design.id} %>
 	      		      		<%= o.input :flat, as: :hidden, input_html: { value: params[:flat].split('-')[1].blank? ? "#{params[:tower]}, #{params[:flat]}" : params[:flat].split('-')[1] } %>

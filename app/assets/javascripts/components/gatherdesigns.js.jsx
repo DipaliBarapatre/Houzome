@@ -160,7 +160,7 @@ var Design = React.createClass({
 				      <p></p>
 				    </div>
 				  </div>
-				  <p style={paraStyle} ><b>{this.props.design.name}</b>,INR {this.props.design.selling_price}</p>
+				  <p style={paraStyle} ><b>{this.props.design.name}</b>, INR {this.props.design.selling_price}</p>
 				</div>
 			</div>
 		);

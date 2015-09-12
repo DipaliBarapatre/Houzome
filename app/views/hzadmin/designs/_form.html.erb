@@ -13,6 +13,9 @@
 	<%= f.attachment_field :images_files, multiple: true %>
 	<p><i class='fa fa-info-circle'> </i> Can select multiple images at once using Ctrl + Click (Total images size should not exceed 5 Mb)</p>
 	<p><a href="http://compressjpeg.com/" target="_blank">Compress</a> images if needed</p>
+	<% @design.images.each do |t| %>
+		<%= attachment_image_tag(t, :file, :fill, 300, 150) %>
+	<% end %>
 	<br>
 	<%= f.submit %>
 <% end %>

@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+	layout 'homepage'
   
   def create
   	@apartment = Apartment.friendly.find(params[:order][:apartment_id])
@@ -6,7 +7,7 @@ class OrdersController < ApplicationController
 	@order = Order.new(permit_params)
 	if @order.save
 	    respond_to do |format|
-			format.js
+			format.html
 		end
 	else
 		render js: "$(\".modal-state:checked\").prop(\"checked\", false).change();swal('Oops...', '#{@order.errors.full_messages}', 'error')"

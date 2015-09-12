@@ -25,7 +25,12 @@
         <li><b> Email:</b>  <a href="mailto:<%= @order.email %>"><%= @order.email %></a></li>
       </div>
       <div class="half_last">
-        <li><b>Apartment:</b> <%= @order.apartment.try(:name).blank? ? @order.apartment_address : @order.apartment.try(:name) %></li>
+      <% if @order.order_type == 'Custom' %>
+        <li><b>Apartment:</b><%= @order.apartment.try(:name).blank? ? @order.apartment_address : @order.apartment.try(:name) %></li>
+      <% end %>
+      <% unless @order.order_type == 'Custom' %>
+        <li><b>House Address:</b> <br> <%= @order.apartment.try(:name) %><br><%= @order.apartment.builder.name %><br><%= @order.apartment.address %></li>
+      <% end %>
         <li><b>Flat:</b> <%= @order.flat %></li>
         <li>
         <% unless @order.design.blank? %>
