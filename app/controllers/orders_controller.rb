@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-	layout 'homepage'
+layout 'homepage'
   
   def create
   	@apartment = Apartment.friendly.find(params[:order][:apartment_id])

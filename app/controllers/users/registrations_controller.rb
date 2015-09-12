@@ -22,14 +22,15 @@ layout :layout_by_action
     @user = User.find(current_user.id)
 
     successfully_updated = if needs_password?(@user, params)
-      @user.update_with_password(devise_parameter_sanitizer.for(:account_update))
+      @user.update_with_password(params.require(:user).permit(:city, :email, :image, :mobile, :name, :current_password, :password, :password_confirmation))
       # Rails 3:  @user.update_with_password(params[:user])
     else
       # remove the virtual current_password attribute update_without_password
       # doesn't know how to ignore it
       params[:user].delete(:current_password)
-      binding.pry
-      @user.update_without_password(devise_parameter_sanitizer.for(:account_update))
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+      @user.update_without_password(params.require(:user).permit(:city, :email, :image, :mobile, :name))
       # Rails 3: @user.update_without_password(params[:user])
     end
 
