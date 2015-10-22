@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901113132) do
+ActiveRecord::Schema.define(version: 20151020183535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,8 @@ ActiveRecord::Schema.define(version: 20150901113132) do
     t.decimal  "price",             precision: 15, scale: 5
     t.string   "designer"
     t.string   "executioner"
+    t.string   "apartment_name"
+    t.string   "tower"
   end
 
   add_index "orders", ["apartment_id"], name: "index_orders_on_apartment_id", using: :btree

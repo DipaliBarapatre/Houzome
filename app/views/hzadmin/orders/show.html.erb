@@ -21,7 +21,7 @@
       <div class="half">
         <li><b> Name:</b> <%= @order.name %></li>
         <li><b>Mobile:</b> <a href="tel:<%= @order.mobile %>"><%= @order.mobile %></a></li>
-        <li><b> City:</b> <%= @order.city %></li>    
+	<li><b> City:</b> <%= (@order.order_type == "Custom") ? @order.city : @order.apartment.city %></li>    
         <li><b> Email:</b>  <a href="mailto:<%= @order.email %>"><%= @order.email %></a></li>
       </div>
       <div class="half_last">

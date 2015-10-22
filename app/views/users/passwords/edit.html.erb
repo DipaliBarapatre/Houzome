@@ -1,25 +1,36 @@
-<div class="box white">
-  <div style="text-align:center">
-    <h3><a href="<%= root_url %>"><%= image_tag 'logo_big.jpg', style: 'max-height: 52px;margin-bottom: 12px;padding:0px' %></a></h3>
-    <h3 style="color:rgb(59, 149, 185)">Change your password</h3>
-    <hr>
-  </div>
-  <%= render 'application/flashes' %>
-  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-    <%= f.error_notification %>
+<div class="msg-wrap fixed"><h1>freegift banner attached Here</h1></div>
 
-    <%= f.input :reset_password_token, as: :hidden %>
-    <%= f.full_error :reset_password_token %>
+            <div class="clearfix"></div>
 
-    <div class="form-inputs">
-      <%= f.input :password, label: "New password", required: true, autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-      <%= f.input :password_confirmation, label: "Confirm your new password", required: true %>
-    </div>
+            <div class="login-content-container">
+                <div class="login-content for-pass-content container">
+                    <div class="for-pass-form">
+                        <h2 style="color:#3b95ba;">Forgot Your Password</h2>
+                        <hr>
+                          <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, :class=>"simple_form new_user" }) do |f| %>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Change my password" %>
-    </div>
-  <% end %>
+                        <input type="hidden" value="✓" name="utf8"><input type="hidden" value="NEmpsFvYp312PDpw8yQGUU6T+mvIfgRzB2W9Z20Feg6J3hgYuVdGrjjfzB5uOWo8ttvIrlIXWu+C/iworBqmbg==" name="authenticity_token">
+                            <div class="form-inputs">
+                                <div class="input email required user_email"><label for="user_email" class="email required">Email*</label><input type="email" id="user_email" name="user[email]" value="" autofocus="autofocus" class="string email required"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-actions">
+                                <input class="btn" type="submit" value="Send me reset password instructions" name="commit">
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-bottom">
+                                <p>Already a member?
+                                    <%= link_to "Log in",new_user_session_path %>
+                                 </p>
+                                <br>
+                                <p>Dont have an account?
+                                    <%= link_to "Sign up", new_registration_path(resource_name)%>
+                                </p>
+                            </div>
+                            <div class="clearfix"></div>
+                        <% end %>
+                    </div>
 
-  <%= render "devise/shared/links" %>
-</div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>

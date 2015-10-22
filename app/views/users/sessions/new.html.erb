@@ -1,20 +1,50 @@
-<div class="box white">
-	<div style="text-align:center">
-		<h3><a href="<%= root_url %>"><%= image_tag 'logo_big.jpg', style: 'max-height: 52px;margin-bottom: 12px;padding:0px' %></a></h3>
-		<h3 style="color:rgb(59, 149, 185)">LOGIN</h3>
-		<hr>
-	</div>
-	<%= render 'application/flashes' %>
-	<%= simple_form_for(resource, as: resource_name, url: user_session_path) do |f| %>
-	  <div class="form-inputs">
-	    <%= f.input :email, required: false, autofocus: true %>
-	    <%= f.input :password, required: false %>
-	    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-	  </div>
 
-	  <div class="form-actions">
-	    <%= f.button :submit, "Log in" %>
-	  </div>
-	  <%= render "devise/shared/links" %>
-	<% end %>
+<!DOCTYPE html>
+<!--[if IE 7 ]><html class="ie7" lang="en-US"><![endif]-->
+<!--[if IE 8 ]><html class="ie8" lang="en-US"><![endif]-->
+<!--[if IE 9 ]><html class="ie9" lang="en-US"><![endif]-->
+            <div class="msg-wrap fixed"><h1>freegift banner attached Here</h1></div>
+
+            <div class="clearfix"></div>
+
+            <div class="login-content-container">
+                <div class="login-content container">
+                    <div class="login-form">
+                        <h2 style="color:#3b95ba;">Login</h2>
+                        <hr>
+                        <form method="post" accept-charset="UTF-8" action="/users/sign_in" id="new_user" class="simple_form new_user" novalidate="novalidate"><input type="hidden" value="✓" name="utf8"><input type="hidden" value="NEmpsFvYp312PDpw8yQGUU6T+mvIfgRzB2W9Z20Feg6J3hgYuVdGrjjfzB5uOWo8ttvIrlIXWu+C/iworBqmbg==" name="authenticity_token">
+                            <div class="form-inputs">
+                                <div class="input email optional user_email"><label for="user_email" class="email optional">Email</label><input type="email" id="user_email" name="user[email]" value="" autofocus="autofocus" class="string email optional"></div>
+                                <div class="input password optional user_password"><label for="user_password" class="password optional">Password</label><input type="password" id="user_password" name="user[password]" class="password optional"></div>
+                                <div class="input boolean optional user_remember_me"><input type="hidden" name="user[remember_me]" value="0"><label for="user_remember_me" class="boolean optional checkbox"><input type="checkbox" id="user_remember_me" name="user[remember_me]" value="1" class="boolean optional">Remember me</label></div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-actions">
+                                <input type="submit" class="btn" value="Log in" name="commit">
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-bottom">
+                                <p>Dont have an account?
+                                    <%= link_to "Sign up", new_registration_path(resource_name)%>
+                                    </p>
+
+                                <%= link_to "Forgot your password?",new_password_path(resource_name)%>
+                                <br>
+                                <hr>
+                                
+                                <%- if devise_mapping.omniauthable? %>
+                                 <hr>
+                                 <%- resource_class.omniauth_providers.each do |provider| %>
+                                   <%= link_to raw("Sign in with <b>#{provider.to_s.titleize}</b>"), omniauth_authorize_path(resource_name, provider), class: "btn-auth btn-#{provider.to_s}" %><br />
+                                 <% end -%>
+                               <% end -%>
+
+
+
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
 </div>

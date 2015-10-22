@@ -34,6 +34,8 @@ gem "figaro"
 gem 'httparty'
 gem "paranoia", "~> 2.0"
 gem "feed_parser"
+gem "execjs"
+gem 'therubyracer'
 
 
 # gem "refile", require: "refile/rails"

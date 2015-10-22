@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= render 'common_header_tags' %>
   <%#
     Configure default and controller-, and view-specific titles in
     config/locales/en.yml. For more see:
     https://github.com/calebthompson/title#usage
   %>
   <title><%= page_title(app_name: 'Houzome') %></title>
-  <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
-  <%= render 'tag_manager' %>
-  <%= render "analytics" %>
-  <%= render "flashes" -%>
   <%= yield %>
-  <%= render "javascript" %>
-  <%= yield :javascript %>
-  <%= yield :custom_design %>
 </body>
 </html>

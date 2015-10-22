@@ -10,6 +10,7 @@ layout 'apartments'
   end
 
   def create
+    
   	@order = Order.new(permit_params)
   	if @order.save
   	    respond_to do |format|
@@ -22,6 +23,6 @@ layout 'apartments'
 
   private
   	def permit_params
-  		params.require(:order).permit(:order_type,:name,:email,:mobile,:flat,:apartment_address,:city,:special_request)
+  		params.require(:order).permit(:order_type,:name,:email,:mobile,:flat,:apartment_address,:city,:special_request, :tower, :apartment_name)
   	end
 end
