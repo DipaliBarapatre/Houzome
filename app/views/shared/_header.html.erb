@@ -1,25 +1,30 @@
-<div style="background:white">
-  <div id="top-header" style="text-align:right">
-  <% unless current_user %>
-    <%= link_to "Login", new_user_session_path %> | 
-    <%= link_to "Register", new_user_registration_path %>
-  <% else %>
-    welcome <%= current_user.email %> <%= link_to 'Dashboard', orders_path %> | <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-  <% end %>
-  </div>
-</div>
-<header class="navigation" role="banner">
-  <div class="navigation-wrapper">
-    <a href="<%= root_url %>" class="logo">
-      <%= image_tag 'logo_big.jpg', style: 'max-height: 52px;margin-bottom: 12px;padding:0px', alt: 'logo' %>
-    </a>
-    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
-    
-    <div class="navigation-tools">
-      <ul id="js-navigation-menu" class="navigation-menu show">
-        <li class="nav-link"><%= link_to 'Search your Home', apartments_path %></li>
-        <li class="nav-link"><%= link_to 'Request Custom Design', custom_design_path %></li>
-      </ul>
+<div style="position: fixed;top: 0px;left: 0px;right: 0px;z-index:9999">
+  <div style="background:white">
+    <div id="top-header" style="text-align:right">
+    <% unless current_user %>
+      <%= link_to "Login", new_user_session_path %> | 
+      <%= link_to "Register", new_user_registration_path %>
+    <% else %>
+      welcome <%= current_user.email %> <%= link_to 'Dashboard', orders_path %> | <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <% end %>
     </div>
   </div>
-</header>
+  <header class="navigation" role="banner">
+    <div class="navigation-wrapper">
+      <a href="<%= root_url %>" class="logo">
+        <%= image_tag 'logo_big.jpg', style: 'max-height: 52px;margin-bottom: 12px;padding:0px;width: 178px', alt: 'logo' %>
+      </a>
+      <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+      
+      <div class="navigation-tools">
+        <ul id="js-navigation-menu" class="navigation-menu show">
+          <li class="nav-link"><%= link_to 'Search your Home', apartments_path %></li>
+          <li class="nav-link"><%= link_to 'Post Your Query', custom_design_path %></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+</div>
+<div style='min-height:85px;margin-top:60px'>
+&nbsp;
+<div>

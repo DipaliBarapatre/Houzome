@@ -1,3 +1,4 @@
+require Rails.root.join("config/smtp")
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -24,7 +25,7 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
   config.static_cache_control = "public, max-age=#{1.year.to_i}"
-  # Enable deflate / gzip compression of controller-generated responses
+  # Enable 1111111111111111111deflate / gzip compression of controller-generated responses
   config.middleware.use Rack::Deflater
 
   # Ensure requests are only served from one, canonical host name
@@ -87,7 +88,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'houzome.com' }
+  # config.action_mailer.default_url_options = { host: ENV.fetch("HOST") }
 
   config.react.variant = :production
   config.react.addons = true # defaults to false

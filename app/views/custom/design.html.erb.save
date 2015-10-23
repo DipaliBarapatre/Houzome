@@ -32,7 +32,7 @@
 			<% else %>
 			<%= o.input :apartment_address, input_html: {placeholder: 'Apartment Name & Address'} %>
 			<% end %>
-			<%= o.input :city, input_html: {value: params[:city].blank? ? ( current_user.blank? ? '' : current_user.city ) : params[:city]} %>
+			<%= o.input :city, input_html: {value: .blank? ? ( params[:city].blank? ? '' : params[:city] ) : current_user.city} %>
 			<%= o.input :special_request %>
 
 			<%= o.submit 'Submit Request'  %>

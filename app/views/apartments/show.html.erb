@@ -40,6 +40,7 @@ meta title: "#{@apartment.name} | Houzome",
 <% content_for :javascript_header do %>
 	<script>
 		window.apartment_id = "<%= params[:id] %>";
+		window.city = "<%= @apartment.city %>";
 	</script>
 	<script type="application/ld+json">
 	 { "@context" : "http://schema.org",

@@ -76,7 +76,7 @@ var MasterDesign = React.createClass({
 	},
 
 	customDesign: function(){
-		window.location.replace('/custom/design?apartment=' + window.apartment_id + '&tower=' + this.state.tower_id + '&flat=' + this.state.flat_id)
+		window.location.replace('/custom/design?apartment=' + window.apartment_id + '&tower=' + this.state.tower_id + '&flat=' + this.state.flat_id + '&city=' + window.city);
 	},
 
 	render: function(){

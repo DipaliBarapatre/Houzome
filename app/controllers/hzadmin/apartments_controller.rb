@@ -55,7 +55,7 @@ layout 'admin'
 
   def inactive
     @apartment = Apartment.find(params[:id])
-    if @apartment.destroy
+    if @apartment.update(:deleted_at => Time.now)
       flash[:notice] = "Apartment hidden"
       redirect_to builder_path(params[:builder_id])
     else
