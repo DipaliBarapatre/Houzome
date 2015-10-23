@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:create]
   get 'custom/design' => 'custom#design'
   post 'custom/design' => 'custom#create'
+
   scope 'api', module: 'api' do
     resources :apartments, only: [:index, :show] do
       resources :designs, only: [:index]
