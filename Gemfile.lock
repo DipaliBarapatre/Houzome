@@ -10,12 +10,6 @@ GIT
       polyamorous (~> 1.2)
 
 GIT
-  remote: git://github.com/thoughtbot/refills.git
-  revision: 4149151dac82e2b52825d5ed9ccc8d4db22d6d2f
-  specs:
-    refills (0.1.0)
-
-GIT
   remote: https://github.com/refile/refile.git
   revision: 0dc2072a90020c940102b099387c34297f89b321
   branch: master
@@ -75,9 +69,6 @@ GEM
     aws-sdk-resources (2.1.14)
       aws-sdk-core (= 2.1.14)
     bcrypt (3.1.10)
-    bourbon (4.2.3)
-      sass (~> 3.4)
-      thor
     builder (3.2.2)
     bundler-audit (0.4.0)
       bundler (~> 1.2)
@@ -192,14 +183,10 @@ GEM
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    neat (1.7.2)
-      bourbon (>= 4.0)
-      sass (>= 3.3)
     netrc (0.10.3)
     newrelic_rpm (3.12.1.298)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
-    normalize-rails (3.0.3)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -340,7 +327,6 @@ DEPENDENCIES
   active_model_serializers
   awesome_print
   aws-sdk (~> 2.0)
-  bourbon (~> 4.2.0)
   bundler-audit
   coffee-rails (~> 4.1.0)
   delayed_job_active_record
@@ -362,9 +348,7 @@ DEPENDENCIES
   mandrill_mailer
   meta_request
   metamagic
-  neat (~> 1.7.0)
   newrelic_rpm (>= 3.9.8)
-  normalize-rails (~> 3.0.0)
   omniauth
   omniauth-facebook
   paranoia (~> 2.0)
@@ -378,7 +362,6 @@ DEPENDENCIES
   refile!
   refile-mini_magick
   refile-s3
-  refills!
   sass-rails (~> 5.0)
   selectize-rails
   simple_form
