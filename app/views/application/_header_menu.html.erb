@@ -1,0 +1,47 @@
+<div style="" class="header-wrappper">
+                <header class="clearHeader">
+                    <div class="navigation-wrapper container">
+                        <%= link_to (image_tag 'logo1') , root_path, :class => "logo"%>
+                        <div class="navigation-tools">
+                            <nav class="navbar navbar-default" role="navigation">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <!--<a class="navbar-brand" href="#"></a>-->
+                                </div>
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                    <ul class="nav navbar-nav">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">My city and apartment <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+
+                                               <% Apartment.all.pluck(:city).uniq.compact.sort.each do |city|%>
+                                                 <li><%= link_to city, "#"%>
+						 <% end %>
+                                                <li class="divider"></li>
+                                                <li><%= link_to "My city not listed", custom_design_path%></li>
+
+                                            </ul>
+                                        </li>
+                                        <li><%= link_to "View Design Ideas", "#"%></li>
+                                        <li><%= link_to "Post Your Query", custom_design_path%></li>
+                                        <% if user_signed_in?%>
+                                           <li><%= link_to current_user.name, "#"%></li>
+                                           <li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
+                                        <% else %>
+                                          <li><%= link_to "Login", new_user_session_path%></li>
+                                        <% end%>
+                                    </ul>
+                                </div><!-- /.navbar-collapse -->
+                            </nav>
+                        </div>
+                    </div>
+                </header><!-- /header -->
+
+            </div>

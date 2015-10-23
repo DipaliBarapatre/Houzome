@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
+  
   ## Dashboard
   scope :module => 'dashboard' do
     resources :orders, only: [:index, :show]
@@ -39,7 +40,6 @@ Rails.application.routes.draw do
   resources :orders, only: [:create]
   get 'custom/design' => 'custom#design'
   post 'custom/design' => 'custom#create'
-
   scope 'api', module: 'api' do
     resources :apartments, only: [:index, :show] do
       resources :designs, only: [:index]
@@ -49,5 +49,7 @@ Rails.application.routes.draw do
   get "sitemap.xml" => "homepage#sitemap", format: :xml, as: :sitemap
   get "robots.txt" => "homepage#robots", format: :text, as: :robots
 
-  root 'homepage#index'
+  root 'welcome#index'
+  
+  get "home" => "homepage#index"
 end

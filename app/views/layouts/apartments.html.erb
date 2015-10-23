@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= render 'common_header_tags' %>
-  <%#
-    Configure default and controller-, and view-specific titles in
-    config/locales/en.yml. For more see:
-    https://github.com/calebthompson/title#usage
-  %>
-  <title><%= page_title(app_name: 'Houzome') %></title>
-  <%= yield :javascript_header %>
-  <script src="//use.typekit.net/gsi0jaz.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
-  <%= stylesheet_link_tag :apartments, media: "all" %>
-  <%= csrf_meta_tags %>
+  <%= render 'head'%>
+
 </head>
-<body class="<%= body_class %>">
-  <%= render 'tag_manager' %>
-  <%= render "analytics" %>
+<body class="homepage homepage-index">
+  <div class="page-wrapper">
+  <%= render 'header'%>
   <%= render "flashes" -%>
-  <%= render 'shared/header' %>
   <%= yield %>
-  <%= render 'refills/footer' %>
-  
-  <%= javascript_include_tag :apartments %>
+
+  <%= javascript_include_tag :application %>
   <%= yield :javascript %>
   <%= yield :custom_design %>
+  <%= javascript_include_tag :apartments %>
+  </div>
+    <%= render 'footer'%>
 </body>
+  
+
 </html>

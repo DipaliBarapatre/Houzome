@@ -1,24 +1,42 @@
-<div class="box white">
-	<div style="text-align:center">
-		<h3><a href="<%= root_url %>"><%= image_tag 'logo_big.jpg', style: 'max-height: 52px;margin-bottom: 12px;padding:0px' %></a></h3>
-		<h3 style="color:rgb(59, 149, 185)">Registration</h3>
-		<hr>
-	</div>
-	<%= render 'application/flashes' %>
-	<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-	  <%= f.error_notification %>
+<div class="msg-wrap fixed"><h1>freegift banner attached Here</h1></div>
 
-	  <div class="form-inputs">
-	  	<%= f.input :name, required: true, autofocus: true %>
-	    <%= f.input :email, required: true %>
-	    <%= f.input :mobile, label: 'Phone No.' %>
-	    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-	    <%= f.input :password_confirmation, required: true %>
-	  </div>
+            <div class="clearfix"></div>
 
-	  <div class="form-actions">
-	    <%= f.button :submit, "Sign up" %>
-	  </div>
-	<% end %>	
-	<%= render "devise/shared/links" %>
-</div>
+            <div class="login-content-container">
+                <div class="login-content register-content container">
+                    <div class="registration-form">
+                        <h2 style="color:#3b95ba;">Sign up / Register</h2>
+                        <hr>
+                        <form method="post" accept-charset="UTF-8" action="/users" id="new_user" class="simple_form new_user" novalidate="novalidate"><input type="hidden" value="✓" name="utf8"><input type="hidden" value="Lh0ZyQgiR6v/OBI+oNpNfg1uFCkbhawvvU1vp3l50UCTiqhh6q2meLHb5FA9xyET9SYm7IHs8rM41v7ouGYNIA==" name="authenticity_token">
+                            <div class="form-inputs">
+                                <div class="input string required user_name"><label for="user_name" class="string required"> Name*</label><input type="text" id="user_name" name="user[name]" autofocus="autofocus" class="string required"></div>
+                                <div class="input email required user_email"><label for="user_email" class="email required"> Email*</label><input type="email" id="user_email" name="user[email]" value="" class="string email required"></div>
+                                <div class="input string optional user_mobile"><label for="user_mobile" class="string optional">Phone No.</label><input type="text" id="user_mobile" name="user[mobile]" class="string optional"></div>
+                                <div class="input password required user_password field_with_hint"><label for="user_password" class="password required"> Password*</label><input type="password" id="user_password" name="user[password]" class="password required"><span class="hint">8 characters minimum</span></div>
+                                <div class="input password required user_password_confirmation"><label for="user_password_confirmation" class="password required"> Password confirmation*</label><input type="password" id="user_password_confirmation" name="user[password_confirmation]" class="password required"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-actions">
+                                <input type="submit" class="btn" value="Sign up" name="commit">
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-bottom">
+                                <p>
+                                    Already a member?
+                                    <%= link_to "Log in",new_user_session_path %>
+                                </p>
+                                <hr>
+                                <%- if devise_mapping.omniauthable? %>
+                                 <hr>
+                                 <%- resource_class.omniauth_providers.each do |provider| %>
+                                   <%= link_to raw("Sign in with <b>#{provider.to_s.titleize}</b>"), omniauth_authorize_path(resource_name, provider), class: "btn-auth btn-#{provider.to_s}" %><br />
+                                 <% end -%>
+                               <% end -%>
+
+                                <br>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>

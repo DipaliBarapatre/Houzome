@@ -1,0 +1,81 @@
+        <meta charset="utf-8" />
+        <meta name="ROBOTS" content="NOODP" />
+        <title>Modern Interior Design Solutions, Unique modern Design | Houzome</title>
+        <link rel="shortcut icon" href="<%= asset_path("favicon2.png") %>" type="image/x-icon">
+        <script src="//use.typekit.net/gsi0jaz.js"></script>
+        <script>try {
+                Typekit.load({async: true});
+            } catch (e) {
+            }</script>
+        <style>
+            .caret-up {
+                width: 0;
+                height: 0;
+                border-left: 4px solid rgba(0, 0, 0, 0);
+                border-right: 4px solid rgba(0, 0, 0, 0);
+                border-bottom: 4px solid;
+
+                display: inline-block;
+                margin-left: 2px;
+                vertical-align: middle;
+            }
+        </style>
+        <script>
+            $(function () {
+                $(".dropdown").hover(
+                        function () {
+                            $('.dropdown-menu', this).stop(true, true).fadeIn("fast");
+                            $(this).toggleClass('open');
+                            $('b', this).toggleClass("caret caret-up");
+                        },
+                        function () {
+                            $('.dropdown-menu', this).stop(true, true).fadeOut("fast");
+                            $(this).toggleClass('open');
+                            $('b', this).toggleClass("caret caret-up");
+                        });
+            });
+        </script>
+        <script type="text/javascript">
+            $(window).scroll(function () {
+                var scroll = $(window).scrollTop();
+
+                if (scroll >= 500) {
+                    $(".clearHeader").addClass("smaller");
+                    $(".msg-wrap").addClass("fixed");
+                } else {
+                    $(".clearHeader").removeClass("smaller");
+                    $(".msg-wrap").removeClass("fixed");
+                }
+            });
+        </script>
+        
+        <script src="http://houzome.com/assets/application-82e41d0197734e921aeade86d1eb411ed138697a648cad37162d86715ace2f42.js"></script>
+        <script>
+            $(document).ready(function () {
+
+                $("#banner").owlCarousel({
+                    autoPlay: 3000, //Set AutoPlay to 3 seconds
+                    items: 1,
+                    itemsDesktop: [1199, 3],
+                    itemsDesktopSmall: [979, 3],
+                    pagination: false, animateIn: 'flipInX',
+                });
+                $("#partners").owlCarousel({
+                    autoPlay: 3000, //Set AutoPlay to 3 seconds
+                    items: 4,
+                    itemsDesktop: [1199, 3],
+                    itemsDesktopSmall: [979, 3],
+                });
+            });
+        </script>
+
+
+  <%= stylesheet_link_tag 'bootstrap-theme.min'%>
+  <%= stylesheet_link_tag 'bootstrap.min'%>
+  <%= stylesheet_link_tag 'style'%>
+  
+  <%= javascript_include_tag 'jquerymin'%>
+  <%= javascript_include_tag 'bootstrap.min'%>
+       
+  
+  <%= csrf_meta_tags %>
