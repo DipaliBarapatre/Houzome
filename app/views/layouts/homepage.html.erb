@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html>
-<%= render 'head'%>
- <head>
+<head>
+  <%#
+    Configure default and controller-, and view-specific titles in
+    config/locales/en.yml. For more see:
+    https://github.com/calebthompson/title#usage
+  %>
+  <title><%= page_title(app_name: 'Houzome') %></title>
+  <script src="//use.typekit.net/gsi0jaz.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <%= stylesheet_link_tag :application, media: "all" %>
+  <%= stylesheet_link_tag :style %>
+  <%= csrf_meta_tags %>
 </head>
+
 <body class="homepage homepage-index">
   <div class="page-wrapper">
   <%= render 'header_menu'%>
@@ -16,4 +27,5 @@
   </div>
     <%= render 'footer'%>
 </body>
+
 </html>
